@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html>
+
+<head>    
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Colombia - Estadísticas Vitales - EEVV -  2019</title>
+<meta name="description" content="El Sistema de Registro Civil y Estadísticas Vitales está orientado a recoger información sobre algunos hechos que ocurren a lo largo de la vida de las personas, tales como nacimiento, matrimonio, divorcio, anulación, adopción, legitimación, reconocimiento y defunción. Dentro de este sistema se identifican dos subsistemas, registro civil y estadísticas vitales. El primero, en esencia, es una institución pública cuyo objetivo es registrar y almacenar información sobre el acaecimiento de hechos vitales y sus características con fines jurídicos, administrativos y de otra índole; y el segundo, es un proceso que acopia información de los hechos vitales, las características pertinentes a los propios sucesos, para luego compilar, sistematizar, analizar, evaluar, presentar y difundir esos datos. Actualmente, el Sistema de Estadísticas Vitales en Colombia sólo incluye registros de nacimientos y defunciones fetales y no fetales.  Otro de los usos de las estadísticas vitales es el análisis demográfico, requisito para la planificación del desarrollo económico y social. A nivel internacional, facilita las bases para la comparación y apreciación de las diferencias entre países, subregiones y regiones y para trazar, a lo largo del tiempo, las fases demográficas que deben cumplir.  Adicionalmente, provee elementos fundamentales para el diagnóstico de las condiciones de vida de los grupos sociales y geográficos y aporta el conocimiento para evaluar la dinámica de su crecimiento, lo cual obvia la necesidad de montar encuestas periódicas, con los consiguientes altos costos, posibles cambios en metodología y limitaciones en los niveles de desagregación.  El Departamento Administrativo Nacional de Estadística (DANE), se crea mediante el Decreto 2666 de 1953, con la misión de garantizar la disponibilidad y calidad de la información estadística estratégica, dentro de las cuales se cuentan las Estadísticas Vitales y la existencia del Sistema de Información Nacional (SIN). En 1992 mediante el Decreto 2118 se reestructura el DANE y se le asigna a la Dirección General de Censos la producción y evaluación de las estadísticas demográficas nacionales; y a la Dirección del Sistema Estadístico Nacional y Territorial (SENT) la de garantizar la producción de las estadísticas estratégicas, dentro de las que están las poblacionales. Actualmente, la Dirección de Censos y Demografía tiene la responsabilidad en el DANE de producir y evaluar las estadísticas demográficas nacionales, y en este caso concreto las Estadísticas Vitales, a través de la Coordinación de Demografía; su principal propósito es mantener actualizadas las estadísticas de los hechos vitales (nacimientos y defunciones), suministrando a los diferentes usuarios la información de manera eficaz, oportuna y útil.  Este documento hace una descripción sobre el proceso metodológico de la producción y publicación de Estadísticas Vitales en el DANE. Inicia con una breve descripción de antecedentes, luego se describe el diseño haciendo referencia al marco conceptual, diseño estadístico y bases legales en que se fundamentan los indicadores e instrumentos creados para validar la información recogida. También describe el proceso de producción estadística identificando la recolección de la información, la trasmisión, procesamiento de los datos, métodos y mecanismos implementados para el control de la calidad de información, menciona el proceso de difusión de las estadísticas vitales, especialmente se hace referencia a la administración del repositorio de datos y los productos difundidos. Finalmente enumera la documentación relacionada. Finaliza con un glosario de palabras que ayudan al lector a identificar mejor el lenguaje de las Estadísticas Vitales."/>
+<link rel="stylesheet" href="https://microdatos.dane.gov.co/themes/nada/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://microdatos.dane.gov.co/themes/nada/css/bootstrap.min.css">
+    
+
+<link rel="stylesheet" href="https://microdatos.dane.gov.co/themes/nada/css/style.css?v03212019">
+<link rel="stylesheet" href="https://microdatos.dane.gov.co/themes/nada/css/custom.css?v03212019">
+
+    <script src="https://microdatos.dane.gov.co/javascript/jquery/jquery.js"></script>
+    <script src="https://microdatos.dane.gov.co/themes/nada/js/popper.min.js"></script>
+    <script src="https://microdatos.dane.gov.co/themes/nada/js/bootstrap.min.js"></script>
+
+<script src="https://microdatos.dane.gov.co/themes/nada/js/script.js"></script>
+<script type="text/javascript" src="https://microdatos.dane.gov.co/javascript/jquery.ba-bbq.js"></script>
+
+<script type="text/javascript">
+    var CI = {'base_url': 'https://microdatos.dane.gov.co/index.php'};
+
+    if (top.frames.length!=0) {
+        top.location=self.document.location;
+    }
+
+    $(document).ready(function()  {
+        /*global ajax error handler */
+        $( document ).ajaxError(function(event, jqxhr, settings, exception) {
+            if(jqxhr.status==401){
+                window.location=CI.base_url+'/auth/login/?destination=catalog/';
+            }
+            else if (jqxhr.status>=500){
+                alert(jqxhr.responseText);
+            }
+        });
+
+    }); //end-document-ready
+
+</script>
+
+
+<script type="application/ld+json">
+    {
+    "@context": "https://schema.org/",
+    "@type": "Dataset",
+    "name": "Estad\u00edsticas Vitales - EEVV -  2019 - Colombia",
+    "description": "Resumen\r\n---------------------------\r\n\r\nEl Sistema de Registro Civil y Estad\u00edsticas Vitales est\u00e1 orientado a recoger informaci\u00f3n sobre algunos hechos que ocurren a lo largo de la vida de las personas, tales como nacimiento, matrimonio, divorcio, anulaci\u00f3n, adopci\u00f3n, legitimaci\u00f3n, reconocimiento y defunci\u00f3n. Dentro de este sistema se identifican dos subsistemas, registro civil y estad\u00edsticas vitales. El primero, en esencia, es una instituci\u00f3n p\u00fablica cuyo objetivo es registrar y almacenar informaci\u00f3n sobre el acaecimiento de hechos vitales y sus caracter\u00edsticas con fines jur\u00eddicos, administrativos y de otra \u00edndole; y el segundo, es un proceso que acopia informaci\u00f3n de los hechos vitales, las caracter\u00edsticas pertinentes a los propios sucesos, para luego compilar, sistematizar, analizar, evaluar, presentar y difundir esos datos. Actualmente, el Sistema de Estad\u00edsticas Vitales en Colombia s\u00f3lo incluye registros de nacimientos y defunciones fetales y no fetales.\n\nOtro de los usos de las estad\u00edsticas vitales es el an\u00e1lisis demogr\u00e1fico, requisito para la planificaci\u00f3n del desarrollo econ\u00f3mico y social. A nivel internacional, facilita las bases para la comparaci\u00f3n y apreciaci\u00f3n de las diferencias entre pa\u00edses, subregiones y regiones y para trazar, a lo largo del tiempo, las fases demogr\u00e1ficas que deben cumplir.\n\nAdicionalmente, provee elementos fundamentales para el diagn\u00f3stico de las condiciones de vida de los grupos sociales y geogr\u00e1ficos y aporta el conocimiento para evaluar la din\u00e1mica de su crecimiento, lo cual obvia la necesidad de montar encuestas peri\u00f3dicas, con los consiguientes altos costos, posibles cambios en metodolog\u00eda y limitaciones en los niveles de desagregaci\u00f3n.\n\nEl Departamento Administrativo Nacional de Estad\u00edstica (DANE), se crea mediante el Decreto 2666 de 1953, con la misi\u00f3n de garantizar la disponibilidad y calidad de la informaci\u00f3n estad\u00edstica estrat\u00e9gica, dentro de las cuales se cuentan las Estad\u00edsticas Vitales y la existencia del Sistema de Informaci\u00f3n Nacional (SIN). En 1992 mediante el Decreto 2118 se reestructura el DANE y se le asigna a la Direcci\u00f3n General de Censos la producci\u00f3n y evaluaci\u00f3n de las estad\u00edsticas demogr\u00e1ficas nacionales; y a la Direcci\u00f3n del Sistema Estad\u00edstico Nacional y Territorial (SENT) la de garantizar la producci\u00f3n de las estad\u00edsticas estrat\u00e9gicas, dentro de las que est\u00e1n las poblacionales. Actualmente, la Direcci\u00f3n de Censos y Demograf\u00eda tiene la responsabilidad en el DANE de producir y evaluar las estad\u00edsticas demogr\u00e1ficas nacionales, y en este caso concreto las Estad\u00edsticas Vitales, a trav\u00e9s de la Coordinaci\u00f3n de Demograf\u00eda; su principal prop\u00f3sito es mantener actualizadas las estad\u00edsticas de los hechos vitales (nacimientos y defunciones), suministrando a los diferentes usuarios la informaci\u00f3n de manera eficaz, oportuna y \u00fatil.\n\nEste documento hace una descripci\u00f3n sobre el proceso metodol\u00f3gico de la producci\u00f3n y publicaci\u00f3n de Estad\u00edsticas Vitales en el DANE. Inicia con una breve descripci\u00f3n de antecedentes, luego se describe el dise\u00f1o haciendo referencia al marco conceptual, dise\u00f1o estad\u00edstico y bases legales en que se fundamentan los indicadores e instrumentos creados para validar la informaci\u00f3n recogida. Tambi\u00e9n describe el proceso de producci\u00f3n estad\u00edstica identificando la recolecci\u00f3n de la informaci\u00f3n, la trasmisi\u00f3n, procesamiento de los datos, m\u00e9todos y mecanismos implementados para el control de la calidad de informaci\u00f3n, menciona el proceso de difusi\u00f3n de las estad\u00edsticas vitales, especialmente se hace referencia a la administraci\u00f3n del repositorio de datos y los productos difundidos. Finalmente enumera la documentaci\u00f3n relacionada. Finaliza con un glosario de palabras que ayudan al lector a identificar mejor el lenguaje de las Estad\u00edsticas Vitales.\r\n\r\nGeographic coverage\r\n---------------------------\r\n\r\nLos nacimientos y las defunciones son los principales agentes de cambio demogr\u00e1fico de una poblaci\u00f3n.\r\n\r\nAnalysis unit\r\n---------------------------\r\n\r\nUNIDAD ESTAD\u00cdSTICA DE OBSERVACI\u00d3N \n\nNacimiento y defunci\u00f3n.\r\n\r\nUniverso de estudio\r\n---------------------------\r\n\r\nHecho vital, nacido vivo o defunci\u00f3n, ocurrido en el territorio nacional en cada a\u00f1o calendario.\r\n\r\nKind of data\r\n---------------------------\r\n\r\nOperaci\u00f3n estad\u00edstica basada en registros administrativos (adm)\r\n\r\nMode of data collection\r\n---------------------------\r\n\r\nOtro m\u00e9todo\r\n\r\nResearch instrument\r\n---------------------------\r\n\r\nDISE\u00d1O DE INSTRUMENTOS \n\nEl acopio de los datos se lleva a cabo en formatos dise\u00f1ados teniendo en cuenta las caracter\u00edsticas propias del pa\u00eds y atendiendo est\u00e1ndares internacionales, que para los usos previstos han sido establecidos mediante norma.\n\n\nCERTIFICADO DE NACIDO VIVO \n\nLa informaci\u00f3n de nacimientos se recopila en formatos denominados certificado de nacido vivo, dise\u00f1ados para cumplir tanto prop\u00f3sitos legales como estad\u00edsticos.\n\nDichos certificados, una vez diligenciados por el personal de salud competente, se constituyen en la prueba del nacimiento y sirven como documento antecedente para efectuar la inscripci\u00f3n del hecho vital, ante la respectiva oficina de registro civil. Estos permiten unificar en el nivel nacional la informaci\u00f3n relacionada con el nacimiento.\n\nEl certificado de nacido vivo consta de un certificado antecedente que incluye las variables requeridas para el registro civil y que debe ser entregado a los padres del nacido vivo, para que cumpla con dicho tr\u00e1mite y un certificado completo, que es el que recibe la Direcci\u00f3n Territorial de Salud y es enviado al DANE, donde se desarrollan los respectivos procesos de cr\u00edtica, codificaci\u00f3n, grabaci\u00f3n, control de calidad y procesamiento.\n\nEl certificado de nacido vivo se divide en tres (3) cap\u00edtulos:\n\n\u2022 El primero (preguntas 2 a 18), corresponde a los datos propios del nacimiento.\n\n\u2022 El segundo (preguntas 19 a 33), destinado a registrar algunos datos de los padres del reci\u00e9n nacido.\n\n\u2022 El tercero (preguntas 34 a 40), contiene los datos de quien diligencia el certificado.\n\nEl certificado de nacido vivo es expedido por el m\u00e9dico o enfermera que haya asistido el parto. En las \u00e1reas del pa\u00eds donde no se dispone de este recurso, el Ministerio de Protecci\u00f3n Social ha autorizado a auxiliares de enfermer\u00eda y promotoras de salud para su respectivo diligenciamiento.\n\n\nCERTIFICADO DE DEFUNCI\u00d3N \n\nEste instrumento recoge la informaci\u00f3n de la defunci\u00f3n, facilitando as\u00ed el seguimiento de los programas institucionales y gubernamentales desarrollados para evaluar su impacto.\n\nDebe diligenciarse a todo fallecido que haya sido considerado nacido vivo, aunque la muerte suceda por causa natural o violenta y para las defunciones que ocurran antes o durante el parto, nominadas \"muertes fetales\".\n\nEl certificado de defunci\u00f3n est\u00e1 dividido en cinco cap\u00edtulos:\n\na. El primero (preguntas 2 a 24) corresponde a la informaci\u00f3n general de la defunci\u00f3n, y se constituye en el desprendible que sirve como documento antecedente para la inscripci\u00f3n del evento en el registro civil.\n\nb. El segundo (preguntas 25 a 36) incluye aspectos relacionados con las defunciones fetales o de menores de un a\u00f1o.\n\nc. El tercero (preguntas 37 a 39) contempla aspectos relacionados con las defunciones de mujeres en edad f\u00e9rtil, con el prop\u00f3sito de captar la mortalidad materna durante el embarazo, el parto, el puerperio y la mortalidad materna tard\u00eda.\n\nd. El cuarto (preguntas 40 a 42) uso espec\u00edfico para casos de muertes violentas.\n\ne. El quinto (preguntas 43 a 46) destinado a consignar las causas de la defunci\u00f3n o la causa probable de la defunci\u00f3n en los casos constatados por personal no m\u00e9dico (de salud autorizado y funcionarios de registro civil).\n\nf. La \u00faltima parte del certificado consigna la informaci\u00f3n correspondiente a quien certifica la muerte (47-53).\n\nPor \u00faltimo, se relacionan los datos de quien certifica la defunci\u00f3n (apellidos y nombres, documento de identidad, profesi\u00f3n, registro profesional, lugar y fecha de expedici\u00f3n del certificado y firma).\r\n\r\nCleaning operations\r\n---------------------------\r\n\r\nCONSOLIDACI\u00d3N DE TABLA DE DATOS NACIONAL - DANE CENTRAL \n\nSe recibe registro administrativo, se carga en base de datos DANE y se realizan revisiones de calidad.\n\n\nPROCESAMIENTO DE DATOS \n\n\nTIPOS DE CODIFICACI\u00d3N Y CLASIFICACIONES \n\nLa codificaci\u00f3n de mortalidad se apoya en el aplicativo IRIS de codificaci\u00f3n autom\u00e1tica de causas de defunci\u00f3n - que aplica consitentemente las reglas CIE. Posteriormente, esta codificaci\u00f3n autom\u00e1tica y la codificaci\u00f3n de certificados cuyo texto o relaciones no fue posible reconocer de forma autom\u00e1tica, es revisada y/o codificada manualmente por el equipo experto en el tema; teniendo como base la Clasificaci\u00f3n Estad\u00edstica Internacional de Enfermedades y Problemas Relacionados con la Salud (CIE-10), mediante la cual se asignan los c\u00f3digos a las causas de defunci\u00f3n y se selecciona la causa b\u00e1sica de muerte.\n\n\nFORMA DE CODIFICACI\u00d3N \n\nLas estad\u00edsticas de mortalidad tienen como formato fuente el certificado de defunci\u00f3n. A partir de esta informaci\u00f3n, el codificador transforma los diagn\u00f3sticos (enfermedades o causas de defunci\u00f3n) en c\u00f3digos, con el fin de permitir la sistematizaci\u00f3n necesaria para la producci\u00f3n de las estad\u00edsticas. \n\nEn este proceso, la CIE es el instrumento b\u00e1sico que utiliza el codificador para asignar el c\u00f3digo correcto a los diagn\u00f3sticos anotados por el m\u00e9dico y, posteriormente, seleccionar y codificar la causa b\u00e1sica de defunci\u00f3n, que es la utilizada para procesar la informaci\u00f3n y presentar las estad\u00edsticas de mortalidad para el pa\u00eds.\n\nLa selecci\u00f3n de la causa b\u00e1sica de defunci\u00f3n es el proceso mediante el cual se determina la patolog\u00eda que origin\u00f3 la cadena de eventos, que llevaron a la muerte. La afecci\u00f3n que aparezca registrada en la \u00faltima l\u00ednea utilizada de la parte I del certificado, es la causa b\u00e1sica de defunci\u00f3n utilizada para la tabulaci\u00f3n, cuando hay un apropiado diligenciamiento del certificado de defunci\u00f3n; sin embargo, la mayor\u00eda de las veces esto no se cumple, por ello hay que aplicar los procedimientos que dicta la CIE-10.\n\nLa actividad de selecci\u00f3n de causa b\u00e1sica se resume as\u00ed:\n\n\u2022 Asignaci\u00f3n de c\u00f3digos por defecto a causas directas y antecedentes informadas.\n\n\u2022 Selecci\u00f3n de la causa antecedente originaria.\n\n\u2022 Generaci\u00f3n de la causa m\u00faltiple que consolida las decisiones y cambios efectuados por el motor de b\u00fasqueda MUSE sobre las c\u00f3digos por defecto asignados inicialmente. \n\nNota: este detalle corresponde al nuevo campo CAUSA_MULT, que reemplaza el anterior detalle de c\u00f3digos uno a uno para las causas directas, antecedentes y patol\u00f3gicas.\n\n\u2022 Selecci\u00f3n de la causa b\u00e1sica de muerte, mediante la aplicaci\u00f3n de las reglas de selecci\u00f3n y de modificaci\u00f3n, si es necesario.\n\nAdem\u00e1s de los tres vol\u00famenes de la CIE- 10 indispensables para el proceso de codificaci\u00f3n, se debe tener en cuenta la siguiente documentaci\u00f3n:\n\n\u2022 Normas e instrucciones para la codificaci\u00f3n de mortalidad fetal y neonatal.\n\n\u2022 Normas e instrucciones para la codificaci\u00f3n de mortalidad materna.\n\n\u2022 Diccionario m\u00e9dico.\n\n\nADECUACI\u00d3N DE ARCHIVOS \n\nEl MSPS dispone el registro administrativo de forma periodica, seg\u00fan cronograma - via FTP.\n\nEsta informaci\u00f3n en formato de base de datos es extraida, transformada y cargada en base de datos DANE.\n\n\nVERIFICACI\u00d3N DE LA CONSISTENCIA INTERNA DE LOS DATOS Y AJUSTES \n\nEn el DANE Central se realiza la revisi\u00f3n de consistencia y calidad de la informaci\u00f3n consolidada, identificando las variables inconsistentes. Las inconsistencias que ameritan revisi\u00f3n o verificaci\u00f3n con la fuente, son solicitadas y tramitadas con la fuente.\n\nEl DANE Central recibe las correcciones y actualiza las tablas de datos.\r\n\r\nData appraisal\r\n---------------------------\r\n\r\nAN\u00c1LISIS DE MUESTRA - NACIDOS VIVOS Y DEFUNCIONES \n\nSe selecciona una muestra de certificados que sea representativa tanto para nacimientos, defunciones fetales como defunciones no fetales, con el fin de evaluar los procesos de diligenciamiento y codificaci\u00f3n. \n\nLos certificados seleccionados son revisados con el fin de construir los indicadores de calidad y exhaustividad para cada uno de los procesos definidos.\n\n\nDISE\u00d1O DE INDICADORES \n\nA partir de la informaci\u00f3n del registro administrativo y una vez surtidos todos los procesos de codificaci\u00f3n y control de calidad, se generan cuadros de salida de la informaci\u00f3n para ser consultada por el p\u00fablico, en valores absolutos a partir de la informaci\u00f3n de las siguientes variables:\n\nNacimientos: sexo del nacido vivo, peso del nacido vivo al nacer, talla del nacido vivo al nacer, fecha y lugar del nacimiento, el parto fue atendido por, sitio del parto, de acuerdo con la cultura, pueblo o rasgos f\u00edsicos, el nacido vivo es reconocido por sus padres como: Datos de la madre y del padre, edad de la madre a la fecha de parto, estado conyugal de la madre, \u00faltimo a\u00f1o de estudios que aprob\u00f3 la madre, r\u00e9gimen de seguridad social en salud de la madre, lugar y \u00e1rea de residencia habitual de la madre, edad del padre a la fecha del nacimiento de este hijo y \u00faltimo a\u00f1o de estudios que aprob\u00f3 el padre.\n\nDefunciones: tipo de defunci\u00f3n (fetal, no fetal), sexo del fallecido, lugar, \u00e1rea y sitio donde ocurri\u00f3 la defunci\u00f3n, estado conyugal del fallecido, edad del fallecido, \u00faltimo a\u00f1o de estudios que aprob\u00f3 el fallecido, r\u00e9gimen de seguridad social en salud del fallecido (para muerte fetal o menor de un a\u00f1o, el de la madre), lugar y \u00e1rea de residencia habitual del fallecido (para muerte fetal o de menor de una a\u00f1o, el de la madre), persona que certifica la defunci\u00f3n, causa m\u00faltiple y causa b\u00e1sica de defunci\u00f3n (codificadas seg\u00fan la Clasificaci\u00f3n Estad\u00edstica Internacional de Enfermedades y Problemas relacionados con la Salud, CIE 10).",
+    "url": "https://microdatos.dane.gov.co/index.php/catalog/696",
+    "sameAs": "https://microdatos.dane.gov.co/index.php/catalog/study/DANE-DCD-EEVV-2019",
+    "identifier": "DANE-DCD-EEVV-2019",
+    "includedInDataCatalog": {
+        "@type": "DataCatalog",
+        "name": "https://microdatos.dane.gov.co/"
+    },
+    "temporalCoverage": "2019-2020",
+    "dateCreated": "2021-01-20T21:18:17+00:00",
+    "dateModified": "2022-08-16T19:47:18+00:00",
+    "spatialCoverage": {
+        "@type": "Place",
+        "name": "Colombia"
+    },
+    "keywords": [
+        "Aborto",
+        "Accidente de trabajo",
+        "Accidente de tr\u00e1nsito",
+        "APGAR",
+        "\u00c1rea cabecera municipal",
+        "Causa m\u00faltiple",
+        "Centro poblado",
+        "Certificado de defunci\u00f3n",
+        "Certificado de nacido vivo",
+        "Codificar",
+        "Defunci\u00f3n",
+        "Defunci\u00f3n fetal",
+        "Defunci\u00f3n materna",
+        "Edad gestacional",
+        "Enfermedad profesional",
+        "Entidad administradora en salud",
+        "Entidades Adaptadas de Salud (EAS)",
+        "Estad\u00edsticas vitales",
+        "Estado conyugal",
+        "Factor Rh",
+        "Fondo Financiero Distrital",
+        "Grupo sangu\u00edneo",
+        "M\u00e9dico tratante",
+        "M\u00e9dico no tratante",
+        "M\u00e9dico legista",
+        "Nacido vivo",
+        "Nivel educativo y grados aprobados",
+        "No asegurado",
+        "Parto espont\u00e1neo",
+        "Parto por ces\u00e1rea",
+        "Parto instrumentado",
+        "Per\u00edodo perinatal",
+        "Pertenencia \u00e9tnica",
+        "Pueblo ind\u00edgena",
+        "ROM",
+        "Raizal del Archipi\u00e9lago de San Andr\u00e9s y Providencia",
+        "Palenquero de San Basilio",
+        "Negro(a), mulato(a), afrocolombiano(a) o afrodescendiente",
+        "R\u00e9gimen contributivo",
+        "R\u00e9gimen de excepci\u00f3n",
+        "R\u00e9gimen especial",
+        "R\u00e9gimen de seguridad social en salud",
+        "R\u00e9gimen subsidiado",
+        "Registro civil",
+        "Rural disperso",
+        "Secuencia",
+        "Tabla de datos"
+    ],
+    "creator": [
+        {
+            "@type": "Organization",
+            "name": "Direcci\u00f3n de Censos y Demograf\u00eda - DCD"
+        }
+    ],
+    "producer": [
+        {
+            "@type": "Organization",
+            "name": "Direcci\u00f3n de Censos y Demograf\u00eda - Estad\u00edsticas Vitales"
+        }
+    ]
+}</script></head>
+<body>
+
+<!-- site header -->
+<header id="header" class="header shadow-sm">
+      <div class="container-fluid">
+        <div class="row contenedor-header">
+          <div class="col-xs-12 col-md-6 col-xl-6 p-0 column-1">
+            <!-- <img src=https://microdatos.dane.gov.co/themes/nada/images/header/LogoAnda.svg alt="LogoANDA"
+              class="img-fluid logoANDA" /> -->
+              <img src=https://microdatos.dane.gov.co/themes/nada/images/header/logo_colombia_potencia_de_vida.svg alt="">
+          </div>
+          <div class="col-xs-12 col-md-6 col-xl-6 p-0 column-2">
+            <div class="col-box">
+              <a href="#"><img class="log1" src=https://microdatos.dane.gov.co/themes/nada/images/header/logo_anda.svg alt=""></a>
+              <a href="https://www.dane.gov.co/"><img class="log2" src="https://www.dane.gov.co/files/images/logos/logo-dane-blanco.svg" alt=""></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header><!-- page body -->
+<div class="container-fluid-n">    
+           
+                            <div class="body-content-wrap">
+                    
+                                        <!--breadcrumbs -->
+                    <div class="container">
+                                                                <ol class="breadcrumb wb-breadcrumb">
+                            	    <div class="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">
+           <span typeof="v:Breadcrumb">
+                		         <a href="https://microdatos.dane.gov.co/index.php/" rel="v:url" property="v:title">Página principal</a> /
+                        
+       </span>
+                  <span typeof="v:Breadcrumb">
+                		         <a href="https://microdatos.dane.gov.co/index.php/catalog" rel="v:url" property="v:title">Catálogo Central de Datos</a> /
+                        
+       </span>
+                  <span typeof="v:Breadcrumb">
+                		         <a href="https://microdatos.dane.gov.co/index.php/catalog/DEM-Microdatos" rel="v:url" property="v:title">DEM-MICRODATOS</a> /
+                        
+       </span>
+                  <span typeof="v:Breadcrumb">
+        	         	         <a class="active" href="https://microdatos.dane.gov.co/index.php/catalog/696" rel="v:url" property="v:title">DANE-DCD-EEVV-2019</a>
+                        
+       </span>
+               </div>
+                        </ol>
+                                        </div>
+                    <!-- /breadcrumbs -->
+                                        
+<div class="page-body-full study-metadata-page">
+	<span 
+		id="dataset-metadata-info" 
+		data-repositoryid="DEM-Microdatos"
+		data-id="696"
+		data-idno="DANE-DCD-EEVV-2019"
+	></span>
+
+<div class="container-fluid page-header">
+<div class="container">
+
+
+<div class="row">
+			<div class="col-md-2">
+	<div class="collection-thumb-container">
+		<a href="https://microdatos.dane.gov.co/index.php/catalog/DEM-Microdatos">
+		<img  src="https://microdatos.dane.gov.co/files/images/demografia-y-poblacion3.png" class="mr-3 img-fluid img-thumbnail" alt="DEM-Microdatos" title="Demografía y población."/>
+		</a>
+			</div>
+	</div>
+			
+	<div class="col-md-10">
+		<h1 class="mt-0 mb-1" id="dataset-title">Estadísticas Vitales - EEVV -  2019</h1>
+		<h6 class="sub-title" id="dataset-sub-title"><span id="dataset-country">Colombia</span>, <span id="dataset-year">2019 - 2020</span>
+		                    
+							<div class="collection badge badge-light"><a href="https://microdatos.dane.gov.co/index.php/catalog/SAL-Microdatos">Salud.</a></div>
+							<div class="collection badge badge-light"><a href="https://microdatos.dane.gov.co/index.php/catalog/DEM-Microdatos">Demografía y población.</a></div>
+			                    
+		
+		</h6>
+					
+
+		<div class="producers mb-3">
+					Dirección de Censos y Demografía - DCD				</div>
+	
+
+		<div class="dataset-footer-bar mt-2">					
+			
+			<span class="mr-3 link-col float-left">
+				<small>
+					Creado el 
+					<strong>August 16, 2022</strong>
+				</small>
+			</span>
+			
+			<span class="mr-3 link-col float-left">
+				<small>
+					Última modificación 
+					<strong>August 16, 2022</strong>
+				</small>
+			</span>
+			
+                        <span class="mr-3 link-col float-left">
+                <small>
+				<i class="fa fa-eye" aria-hidden="true"></i> 
+				Visitas a la página 
+				<strong>140.086</strong>
+			</small>
+            </span>
+			
+			            <span class="mr-3 link-col float-left">
+                <small>
+				<i class="fa fa-eye" aria-hidden="true"></i> 
+				Descargar 
+				<strong>37.617</strong>
+			</small>
+            </span>
+						
+										<span class="mr-3 link-col float-left">
+					<small><a href="https://microdatos.dane.gov.co/index.php/catalog/696/pdf-documentation" title="PDF" >
+					<i class="fa fa-file-pdf-o" aria-hidden="true"> </i> Documentación en PDF					</a> 
+					</small>
+				</span>            
+			
+					
+			
+			<span class="mr-3 link-col  float-left">
+				<small><i class="fa fa-download" aria-hidden="true"> </i> metadata</small>
+									<a href="https://microdatos.dane.gov.co/index.php/metadata/export/696/ddi" title="metadata_in_ddi_xml">
+						<span class="badge badge-primary"> DDI/XML</span>
+					</a>
+				
+				<a href="https://microdatos.dane.gov.co/index.php/metadata/export/696/json" title="metadata_in_json">
+					<span class="badge badge-info">JSON</span>
+				</a>
+			</span>			
+
+		</div>
+
+	</div>
+</div>
+
+
+
+
+
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs wb-nav-tab-space flex-wrap" role="tablist">
+								<li class="nav-item tab-study_description active"  >
+				<a href="https://microdatos.dane.gov.co/index.php/catalog/696/study-description" class="nav-link wb-nav-link wb-text-link active" role="tab"  data-id="related-materials" title="Related documentation: questionnaires, reports, technical documents, tables">Descripción de la operación estadística</a>
+			</li>
+										<li class="nav-item tab-related_materials "  >
+				<a href="https://microdatos.dane.gov.co/index.php/catalog/696/related-materials" class="nav-link wb-nav-link wb-text-link " role="tab"  data-id="related-materials" title="Related documentation: questionnaires, reports, technical documents, tables">Materiales Relacionados</a>
+			</li>
+										<li class="nav-item tab-data_dictionary "  >
+				<a href="https://microdatos.dane.gov.co/index.php/catalog/696/data-dictionary" class="nav-link wb-nav-link wb-text-link " role="tab"  data-id="related-materials" title="Related documentation: questionnaires, reports, technical documents, tables">Diccionario de Datos</a>
+			</li>
+										<li class="nav-item nav-item-get-microdata tab-get_microdata" >
+				<a href="https://microdatos.dane.gov.co/index.php/catalog/696/get-microdata" class="nav-link wb-nav-link wb-text-link " role="tab" data-id="related-materials" title="Related documentation: questionnaires, reports, technical documents, tables">
+					<span class="get-microdata icon-da-direct"></span> Obtener Microdatos				</a>
+			</li>                            
+								
+	<!--review-->
+	</ul>
+<!-- end nav tabs -->
+</div>
+</div>
+
+
+
+<div class="container study-metadata-body-content " >
+
+
+<!-- tabs -->
+<div id="tabs" class="study-metadata ui-tabs ui-widget ui-widget-content ui-corner-all study-tabs" >	
+  
+  <div id="tabs-1" aria-labelledby="ui-id-1" class="ui-tabs-panel ui-widget-content ui-corner-bottom" role="tabpanel" >
+  	
+        <div class="tab-body-no-sidebar-x"><div class="row metadata-container">    
+    
+
+
+
+<!-- identification section -->
+
+
+<!-- version -->
+
+
+<!-- scope -->
+
+
+<!-- coverage -->
+
+
+<!-- producers_sponsors -->
+
+
+<!-- sampling -->
+
+
+<!-- data_collection -->
+
+
+<!-- questionnaires -->
+
+
+<!-- data_processing -->
+
+
+<!-- data_appraisal -->
+
+
+<!-- data_access -->
+
+
+<!-- disclaimer_copyright -->
+
+
+<!-- metadata_production -->
+
+
+<!-- sidebar with section links -->
+<div class="col-sm-2 col-lg-2  d-none d-sm-block">
+<div class="navbar-collapse sticky-top">
+
+    <ul class="navbar-nav flex-column wb--full-width">
+                
+            
+        <li class="nav-item">
+            <a href="https://microdatos.dane.gov.co/index.php/catalog/696#metadata-identification">Identificación</a>
+        </li>
+                        
+                        
+            
+        <li class="nav-item">
+            <a href="https://microdatos.dane.gov.co/index.php/catalog/696#metadata-scope">Alcance</a>
+        </li>
+                        
+            
+        <li class="nav-item">
+            <a href="https://microdatos.dane.gov.co/index.php/catalog/696#metadata-coverage">Cobertura</a>
+        </li>
+                        
+            
+        <li class="nav-item">
+            <a href="https://microdatos.dane.gov.co/index.php/catalog/696#metadata-producers_sponsors">Productores patrocinadores</a>
+        </li>
+                        
+                        
+            
+        <li class="nav-item">
+            <a href="https://microdatos.dane.gov.co/index.php/catalog/696#metadata-data_collection">Recolección de Datos</a>
+        </li>
+                        
+            
+        <li class="nav-item">
+            <a href="https://microdatos.dane.gov.co/index.php/catalog/696#metadata-questionnaires">Cuestionarios</a>
+        </li>
+                        
+            
+        <li class="nav-item">
+            <a href="https://microdatos.dane.gov.co/index.php/catalog/696#metadata-data_processing">Procesamiento de datos</a>
+        </li>
+                        
+            
+        <li class="nav-item">
+            <a href="https://microdatos.dane.gov.co/index.php/catalog/696#metadata-data_appraisal">Indicadores de la Calidad/Evaluación de la Calidad</a>
+        </li>
+                        
+            
+        <li class="nav-item">
+            <a href="https://microdatos.dane.gov.co/index.php/catalog/696#metadata-data_access">Acceso a los datos</a>
+        </li>
+                        
+            
+        <li class="nav-item">
+            <a href="https://microdatos.dane.gov.co/index.php/catalog/696#metadata-disclaimer_copyright">Descargo de responsabilidad derechos de autor</a>
+        </li>
+                        
+            
+        <li class="nav-item">
+            <a href="https://microdatos.dane.gov.co/index.php/catalog/696#metadata-metadata_production">Producción del metadato</a>
+        </li>
+                </ul>
+</div>
+</div>
+<!--metadata content-->
+<div class="col-12 col-sm-10 col-lg-10 wb-border-left">
+                                                                                                    
+    <div id="metadata-identification" class="section-identification">
+        <h2 class="xsl-subtitle">Identificación</h2>
+        <div class="field field-idno">
+    <div class="xsl-caption field-caption">idno</div>
+    <div class="field-value">
+                    <span>DANE-DCD-EEVV-2019</span>
+            </div>
+</div>
+<div class="field field-title">
+    <div class="xsl-caption field-caption">Título</div>
+    <div class="field-value">
+                    <span>Estadísticas Vitales - EEVV -  2019</span>
+            </div>
+</div>
+<div class="field field-metadata.study_desc.title_statement.translated_title">
+    <div class="xsl-caption field-caption">Título traducido</div>
+    <div class="field-value">
+                    <span>Vital Statistics</span>
+            </div>
+</div>
+<div class="table-responsive field field-metadata.study_desc.study_info.nation">
+    <div class="xsl-caption field-caption">País</div>
+    <div class="field-value">                
+                        
+        <table class="table table-bordered table-striped table-condensed xsl-table table-grid">
+            <tr>
+                                    <th>Nombre</th>
+                                    <th>Código país</th>
+                            </tr>
+            
+                            <tr>
+                                                                    <td>
+                                                            COLOMBIA                                
+                        </td>
+                                                                    <td>
+                                                            COL                                
+                        </td>
+                                        
+                </tr>
+                    </table>
+        
+    </div>
+</div>
+<div class="field field-metadata.study_desc.series_statement.series_name">
+    <div class="xsl-caption field-caption">Nombre de la serie</div>
+    <div class="field-value">
+                    <span>Registros administrativos, otros (ad/oth]</span>
+            </div>
+</div>
+<div class="field field-metadata.study_desc.series_statement.series_info">
+    <div class="xsl-caption field-caption">Información de las series</div>
+    <div class="field-value">
+                    <span>ANTECEDENTES DE LA OPERACIÓN ESTADÍSTICA <br />
+<br />
+Antes del año 1987 el DANE manejaba las estadísticas de nacimientos recogiendo la información de las alcaldías, de las notarías y de las parroquias, a partir de 1987 la Registraduría asumió la función que le fue trasladada por mandato legal y constitucional, trasladando los archivos del Servicio Nacional de Inscripción (SNI) que hasta ese momento se encontraban en el DANE. En cuanto a la información de defunciones con fines estadísticos, históricamente ha sido producida por el DANE con base en los certificados de defunción recolectados en todos los municipios del país<br />
+<br />
+El Sistema de Registro Civil y Estadísticas Vitales inició su implantación a nivel nacional, a partir del 1° de enero de 1998, siendo la fuente de información de las Estadísticas Vitales los certificados de nacido vivo y de defunción, diligenciados por el médico, o cualquier funcionario de salud autorizado y que atienda el hecho vital (nacimiento o defunción) y los certificados diligenciados por los funcionarios de Registro Civil (notarías o registradurías), que se diligencian para los casos en los que no ha existido contacto con salud.<br />
+<br />
+El nuevo Sistema de Registro Civil y Estadísticas Vitales inició la implantación desde el 1° de enero de 1997 en los departamentos de Atlántico, Arauca, Chocó y Risaralda y en el segundo semestre, de manera paulatina, en los demás departamentos, de modo que a partir del 1° de enero de 1998 está funcionando en todo el territorio nacional. El Sistema provee elementos fundamentales para el diagnóstico de las condiciones de vida de los grupos sociales y geográficos y aporta el conocimiento necesario para evaluar la dinámica de su crecimiento.<br />
+<br />
+<br />
+REFERENTES INTERNACIONALES<br />
+<br />
+• La División de Estadística de las Naciones Unidas, sección de estadísticas vitales, ha publicado los siguientes documentos que sirven como referente internacional:<br />
+<br />
+• Principios y recomendaciones para un sistema de estadísticas vitales, revisión 2, Naciones Unidas (número de venta: 01.XVI.10) <br />
+<br />
+• Manual sobre sistemas de registro civil y estadísticas vitales. Gestión, operación y mantenimiento. Naciones Unidas (número de venta: S.98.XVII.11)<br />
+<br />
+• Manual sobre sistemas de registro civil y estadísticas vitales: Preparación del marco legal. Naciones Unidas (número de venta: S98.XVII.7).<br />
+<br />
+• Manual sobre sistemas de registro civil y estadísticas vitales: desarrollo de la información, la educación y la comunicación. Naciones Unidas (número de venta: S.98.XVII.4).<br />
+<br />
+• Manual sobre sistemas de registro civil y estadísticas vitales: normas y protocolos para la divulgación y el archivo de datos personales. Naciones Unidas (número de venta S.98.XVII.6).<br />
+<br />
+• Manual sobre sistemas de registro civil y estadísticas vitales: informatización. Naciones Unidas (número de venta: S.98.XVII.10).<br />
+<br />
+• Manual de sistemas y métodos de estadísticas vitales, volumen I: aspectos jurídicos, institucionales y técnicos. Naciones Unidas (número de venta: S.91.XVII.5).<br />
+<br />
+• Manual X. Técnicas indirectas de estimación demográfica. Naciones Unidas, Nueva York, 1986.<br />
+<br />
+• Clasificación Estadística Internacional de Enfermedades y Problemas Relacionados con la Salud (CIE-10). Organización Panamericana de la Salud (OPS), Oficina Sanitaria Panamericana, Organización Mundial de la Salud (OMS), Oficina Regional. Décima Revisión.<br />
+<br />
+• Lista OPS 6/67 para la tabulación de datos de mortalidad CIE-10. Organización Panamericana de la Salud (OPS), 1999.</span>
+            </div>
+</div>
+<div class="field field-metadata.study_desc.study_info.abstract">
+    <div class="xsl-caption field-caption">Resumen</div>
+    <div class="field-value">
+                    <span>El Sistema de Registro Civil y Estadísticas Vitales está orientado a recoger información sobre algunos hechos que ocurren a lo largo de la vida de las personas, tales como nacimiento, matrimonio, divorcio, anulación, adopción, legitimación, reconocimiento y defunción. Dentro de este sistema se identifican dos subsistemas, registro civil y estadísticas vitales. El primero, en esencia, es una institución pública cuyo objetivo es registrar y almacenar información sobre el acaecimiento de hechos vitales y sus características con fines jurídicos, administrativos y de otra índole; y el segundo, es un proceso que acopia información de los hechos vitales, las características pertinentes a los propios sucesos, para luego compilar, sistematizar, analizar, evaluar, presentar y difundir esos datos. Actualmente, el Sistema de Estadísticas Vitales en Colombia sólo incluye registros de nacimientos y defunciones fetales y no fetales.<br />
+<br />
+Otro de los usos de las estadísticas vitales es el análisis demográfico, requisito para la planificación del desarrollo económico y social. A nivel internacional, facilita las bases para la comparación y apreciación de las diferencias entre países, subregiones y regiones y para trazar, a lo largo del tiempo, las fases demográficas que deben cumplir.<br />
+<br />
+Adicionalmente, provee elementos fundamentales para el diagnóstico de las condiciones de vida de los grupos sociales y geográficos y aporta el conocimiento para evaluar la dinámica de su crecimiento, lo cual obvia la necesidad de montar encuestas periódicas, con los consiguientes altos costos, posibles cambios en metodología y limitaciones en los niveles de desagregación.<br />
+<br />
+El Departamento Administrativo Nacional de Estadística (DANE), se crea mediante el Decreto 2666 de 1953, con la misión de garantizar la disponibilidad y calidad de la información estadística estratégica, dentro de las cuales se cuentan las Estadísticas Vitales y la existencia del Sistema de Información Nacional (SIN). En 1992 mediante el Decreto 2118 se reestructura el DANE y se le asigna a la Dirección General de Censos la producción y evaluación de las estadísticas demográficas nacionales; y a la Dirección del Sistema Estadístico Nacional y Territorial (SENT) la de garantizar la producción de las estadísticas estratégicas, dentro de las que están las poblacionales. Actualmente, la Dirección de Censos y Demografía tiene la responsabilidad en el DANE de producir y evaluar las estadísticas demográficas nacionales, y en este caso concreto las Estadísticas Vitales, a través de la Coordinación de Demografía; su principal propósito es mantener actualizadas las estadísticas de los hechos vitales (nacimientos y defunciones), suministrando a los diferentes usuarios la información de manera eficaz, oportuna y útil.<br />
+<br />
+Este documento hace una descripción sobre el proceso metodológico de la producción y publicación de Estadísticas Vitales en el DANE. Inicia con una breve descripción de antecedentes, luego se describe el diseño haciendo referencia al marco conceptual, diseño estadístico y bases legales en que se fundamentan los indicadores e instrumentos creados para validar la información recogida. También describe el proceso de producción estadística identificando la recolección de la información, la trasmisión, procesamiento de los datos, métodos y mecanismos implementados para el control de la calidad de información, menciona el proceso de difusión de las estadísticas vitales, especialmente se hace referencia a la administración del repositorio de datos y los productos difundidos. Finalmente enumera la documentación relacionada. Finaliza con un glosario de palabras que ayudan al lector a identificar mejor el lenguaje de las Estadísticas Vitales.</span>
+            </div>
+</div>
+<div class="field field-metadata.study_desc.study_info.data_kind">
+    <div class="xsl-caption field-caption">Tipo de datos</div>
+    <div class="field-value">
+                    <span>Operación estadística basada en registros administrativos (adm)</span>
+            </div>
+</div>
+<div class="field field-metadata.study_desc.study_info.analysis_unit">
+    <div class="xsl-caption field-caption">Unidad de Análisis</div>
+    <div class="field-value">
+                    <span>UNIDAD ESTADÍSTICA DE OBSERVACIÓN <br />
+<br />
+Nacimiento y defunción.</span>
+            </div>
+</div>
+    </div>
+                        
+                        
+    <div id="metadata-scope" class="section-scope">
+        <h2 class="xsl-subtitle">Alcance</h2>
+        <div class="field field-metadata.study_desc.study_info.notes">
+    <div class="xsl-caption field-caption">Notas de estudio</div>
+    <div class="field-value">
+                    <span>• Nacimientos: sexo, peso y talla al nacer; fecha y lugar de nacimiento; persona que atendió el parto; sitio del parto; datos de la madre y del padre como: edad, estado civil, nivel educativo, régimen de seguridad social, lugar y área de residencia de la madre.<br />
+<br />
+• Defunciones: tipo de defunción (fetal, no fetal), sexo, lugar, área y sitio de defunción; estado civil, edad, nivel educativo, régimen de seguridad social, lugar y área de residencia del fallecido; persona que certifica, causa múltiple y básica de la defunción (codificadas con la CIE-10).</span>
+            </div>
+</div>
+<div class="table-responsive field field-metadata.study_desc.study_info.topics">
+    <div class="xsl-caption field-caption">Clasificación de temas</div>
+    <div class="field-value">                
+                        
+        <table class="table table-bordered table-striped table-condensed xsl-table table-grid">
+            <tr>
+                                    <th>Tema</th>
+                                    <th>Vocabulario</th>
+                                    <th>URI</th>
+                            </tr>
+            
+                            <tr>
+                                                                    <td>
+                                                            Enfermedades específicas y estado de salud [8.9]                                
+                        </td>
+                                                                    <td>
+                                                            CESSDA                                
+                        </td>
+                                                                    <td>
+                                                            http://www.nesstar.org/rdf/common                                
+                        </td>
+                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Mortalidad y morbilidad [14.4]                                
+                        </td>
+                                                                    <td>
+                                                            CESSDA                                
+                        </td>
+                                                                    <td>
+                                                            http://www.nesstar.org/rdf/common                                
+                        </td>
+                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Salud pública [8.4]                                
+                        </td>
+                                                                    <td>
+                                                            CESSDA                                
+                        </td>
+                                                                    <td>
+                                                            http://www.nesstar.org/rdf/common                                
+                        </td>
+                                        
+                </tr>
+                    </table>
+        
+    </div>
+</div>
+<div class="table-responsive field field-metadata.study_desc.study_info.keywords">
+    <div class="xsl-caption field-caption">Palabras clave</div>
+    <div class="field-value">                
+                        
+        <table class="table table-bordered table-striped table-condensed xsl-table table-grid">
+            <tr>
+                                    <th>Palabra clave</th>
+                            </tr>
+            
+                            <tr>
+                                                                    <td>
+                                                            Aborto                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Accidente de trabajo                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Accidente de tránsito                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            APGAR                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Área cabecera municipal                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Causa múltiple                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Centro poblado                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Certificado de defunción                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Certificado de nacido vivo                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Codificar                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Defunción                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Defunción fetal                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Defunción materna                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Edad gestacional                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Enfermedad profesional                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Entidad administradora en salud                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Entidades Adaptadas de Salud (EAS)                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Estadísticas vitales                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Estado conyugal                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Factor Rh                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Fondo Financiero Distrital                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Grupo sanguíneo                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Médico tratante                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Médico no tratante                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Médico legista                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Nacido vivo                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Nivel educativo y grados aprobados                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            No asegurado                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Parto espontáneo                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Parto por cesárea                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Parto instrumentado                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Período perinatal                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Pertenencia étnica                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Pueblo indígena                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            ROM                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Raizal del Archipiélago de San Andrés y Providencia                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Palenquero de San Basilio                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Negro(a), mulato(a), afrocolombiano(a) o afrodescendiente                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Régimen contributivo                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Régimen de excepción                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Régimen especial                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Régimen de seguridad social en salud                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Régimen subsidiado                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Registro civil                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Rural disperso                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Secuencia                                
+                        </td>
+                                                                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Tabla de datos                                
+                        </td>
+                                                                                        
+                </tr>
+                    </table>
+        
+    </div>
+</div>
+    </div>
+                                
+    <div id="metadata-coverage" class="section-coverage">
+        <h2 class="xsl-subtitle">Cobertura</h2>
+        <div class="field field-metadata.study_desc.study_info.geog_coverage">
+    <div class="xsl-caption field-caption">Cobertura Geografica</div>
+    <div class="field-value">
+                    <span>Los nacimientos y las defunciones son los principales agentes de cambio demográfico de una población.</span>
+            </div>
+</div>
+<div class="field field-metadata.study_desc.study_info.geog_unit">
+    <div class="xsl-caption field-caption">Unidad Geográfica</div>
+    <div class="field-value">
+                    <span>COBERTURA<br />
+<br />
+Nacional<br />
+<br />
+<br />
+DESAGREGACIÓN GEOGRÁFICA<br />
+<br />
+Desagregada por departamentos y municipios.</span>
+            </div>
+</div>
+<div class="field field-metadata.study_desc.study_info.universe">
+    <div class="xsl-caption field-caption">Universo</div>
+    <div class="field-value">
+                    <span>Hecho vital, nacido vivo o defunción, ocurrido en el territorio nacional en cada año calendario.</span>
+            </div>
+</div>
+    </div>
+                                
+    <div id="metadata-producers_sponsors" class="section-producers_sponsors">
+        <h2 class="xsl-subtitle">Productores patrocinadores</h2>
+        <div class="table-responsive field field-metadata.study_desc.authoring_entity">
+    <div class="xsl-caption field-caption">Entidad autora / Investigadores primarios</div>
+    <div class="field-value">                
+                        
+        <table class="table table-bordered table-striped table-condensed xsl-table table-grid">
+            <tr>
+                                    <th>Nombre agencia</th>
+                            </tr>
+            
+                            <tr>
+                                                                    <td>
+                                                            Dirección de Censos y Demografía - DCD                                
+                        </td>
+                                                                
+                </tr>
+                    </table>
+        
+    </div>
+</div>
+<div class="table-responsive field field-metadata.study_desc.production_statement.producers">
+    <div class="xsl-caption field-caption">Productores</div>
+    <div class="field-value">                
+                        
+        <table class="table table-bordered table-striped table-condensed xsl-table table-grid">
+            <tr>
+                                    <th>Nombre</th>
+                                    <th>Afiliación</th>
+                                    <th>Rol</th>
+                            </tr>
+            
+                            <tr>
+                                                                    <td>
+                                                            Dirección de Censos y Demografía - Estadísticas Vitales                                
+                        </td>
+                                                                    <td>
+                                                            Departamento Administrativo Nacional de Estadística - DANE                                
+                        </td>
+                                                                    <td>
+                                                            Equipo Técnico                                 
+                        </td>
+                                        
+                </tr>
+                    </table>
+        
+    </div>
+</div>
+<div class="table-responsive field field-metadata.study_desc.production_statement.funding_agencies">
+    <div class="xsl-caption field-caption">Agencia financiadora / Patrocinador</div>
+    <div class="field-value">                
+                        
+        <table class="table table-bordered table-striped table-condensed xsl-table table-grid">
+            <tr>
+                                    <th>Nombre</th>
+                                    <th>Abreviación</th>
+                                    <th>Rol</th>
+                            </tr>
+            
+                            <tr>
+                                                                    <td>
+                                                            Departamento Administrativo Nacional de Estadística                                
+                        </td>
+                                                                    <td>
+                                                            DANE                                  
+                        </td>
+                                                                    <td>
+                                                            Ejecutor                                  
+                        </td>
+                                        
+                </tr>
+                    </table>
+        
+    </div>
+</div>
+    </div>
+                                
+                                                                
+    <div id="metadata-data_collection" class="section-data_collection">
+        <h2 class="xsl-subtitle">Recolección de Datos</h2>
+        <div class="table-responsive field field-metadata.study_desc.study_info.coll_dates">
+    <div class="xsl-caption field-caption">Fechas de recopilación de datos (YYYY/MM/DD)</div>
+    <div class="field-value">                
+                        
+        <table class="table table-bordered table-striped table-condensed xsl-table table-grid">
+            <tr>
+                                    <th>Fecha inicio</th>
+                                    <th>Fecha final</th>
+                                    <th>Ciclo</th>
+                            </tr>
+            
+                            <tr>
+                                                                    <td>
+                                                            2019-01-01                                
+                        </td>
+                                                                    <td>
+                                                            2020-11-17                                
+                        </td>
+                                                                    <td>
+                                                            Continua                                
+                        </td>
+                                        
+                </tr>
+                    </table>
+        
+    </div>
+</div>
+<div class="table-responsive field field-metadata.study_desc.study_info.time_periods">
+    <div class="xsl-caption field-caption">Períodos de tiempo (YYYY/MM/DD)</div>
+    <div class="field-value">                
+                        
+        <table class="table table-bordered table-striped table-condensed xsl-table table-grid">
+            <tr>
+                                    <th>Fecha inicio</th>
+                                    <th>Fecha final</th>
+                                    <th>Ciclo</th>
+                            </tr>
+            
+                            <tr>
+                                                                    <td>
+                                                            2019                                
+                        </td>
+                                                                    <td>
+                                                            2019                                
+                        </td>
+                                                                    <td>
+                                                            Anual                                
+                        </td>
+                                        
+                </tr>
+                    </table>
+        
+    </div>
+</div>
+<div class="field field-metadata.study_desc.method.data_collection.coll_mode">
+    <div class="xsl-caption field-caption">Mode of data collection</div>
+    <div class="field-value">
+                    <span>Otro método</span>
+            </div>
+</div>
+<div class="field field-metadata.study_desc.method.data_collection.act_min">
+    <div class="xsl-caption field-caption">Supervision</div>
+    <div class="field-value">
+                    <span>PROCEDIMIENTO DE PROCESAMIENTO Y CODIFICACIÓN <br />
+<br />
+A través de un proceso de ETL-extracción, transformación y cargue, el registro administrativo es cargado en base de datos del DANE, para el caso de los certificados de defunción se procede a realizar la codificación de las causas de muerte y asignación de la causa básica, basados en la Clasificación Internacional de Enfermedades (CIE-10), complementando con otras publicaciones como diccionario médico, medicina interna, normas e instrucciones para la codificación de la mortalidad materna, y normas e instrucciones para la codificación de la mortalidad fetal y neonatal. <br />
+<br />
+A partir del año 2019 el DANE utiliza para esta codificación, el aplicativo IRIS de codificación automática de causas de defunción, con el objetivo de lograr estadísticas comparables -al aplicar consistentemente las reglas CIE -Clasificación Estadística Internacional de Enfermedades y Problemas Relacionados con la Salud - de codificación, codificar automáticamente casos rutinarios y dejar al analista codificador más tiempo para casos complejos.<br />
+<br />
+<br />
+CONTROL DE CALIDAD<br />
+<br />
+El equipo de Estadísticas Vítales, sigue un cronograma con actividades encaminadas a mejorar la calidad de la información: que incluye la generación y revisión de enmiendas, novedades o cambios sobre el registro administrativo, frecuencias, validación de consistencia entre campos, duplicados, anulados entre otros procesos.</span>
+            </div>
+</div>
+<div class="field field-metadata.study_desc.method.data_collection.coll_situation">
+    <div class="xsl-caption field-caption">Características de la situación de recopilación de datos: notas sobre la recopilación de datos</div>
+    <div class="field-value">
+                    <span>ESQUEMA OPERATIVO, MÉTODO Y PROCEDIMIENTOS PARA LA RECOLECCIÓN<br />
+<br />
+Los procesos operativos que se surten en la producción de las Estadísticas Vitales; los certificados en blanco salen del DANE Central hacia las Territoriales, posteriormente las territoriales las distribuyen entre las subsedes del DANE, estas los envían a las direcciones departamentales y/o distritales de salud; seguidamente, se distribuyen en las direcciones municipales y/o locales de salud; finalmente llegan hasta la unidades notificadoras de registros vitales como unidades locales de Medicina Legal, médicos particulares, Instituciones Prestadoras de Servicios de Salud y oficinas del registro civil (registradurías y notarías).<br />
+<br />
+Una vez se genera el hecho vital, el certificado diligenciado es ingresado al aplicativo dispuesto por el MSPS, RUAF-ND. La información consolidada se envía al DANE de manera periódica en formato de base de datos. Este registro administrativo es una de las fuentes de información utilizada por el DANE.</span>
+            </div>
+</div>
+<div class="table-responsive field field-metadata.study_desc.method.data_collection.data_collectors">
+    <div class="xsl-caption field-caption">Recolectores de datos</div>
+    <div class="field-value">                
+                        
+        <table class="table table-bordered table-striped table-condensed xsl-table table-grid">
+            <tr>
+                                    <th>Nombre</th>
+                                    <th>Abreviación</th>
+                                    <th>Afiliación</th>
+                            </tr>
+            
+                            <tr>
+                                                                    <td>
+                                                            Departamento Administrativo Nacional de Estadística                                
+                        </td>
+                                                                    <td>
+                                                            DANE                                
+                        </td>
+                                                                    <td>
+                                                            Gobierno Nacional                                  
+                        </td>
+                                        
+                </tr>
+                    </table>
+        
+    </div>
+</div>
+    </div>
+        
+    <div id="metadata-questionnaires" class="section-questionnaires">
+        <h2 class="xsl-subtitle">Cuestionarios</h2>
+        <div class="field field-metadata.study_desc.method.data_collection.research_instrument">
+    <div class="xsl-caption field-caption">Tipo de instrumento de investigación</div>
+    <div class="field-value">
+                    <span>DISEÑO DE INSTRUMENTOS <br />
+<br />
+El acopio de los datos se lleva a cabo en formatos diseñados teniendo en cuenta las características propias del país y atendiendo estándares internacionales, que para los usos previstos han sido establecidos mediante norma.<br />
+<br />
+<br />
+CERTIFICADO DE NACIDO VIVO <br />
+<br />
+La información de nacimientos se recopila en formatos denominados certificado de nacido vivo, diseñados para cumplir tanto propósitos legales como estadísticos.<br />
+<br />
+Dichos certificados, una vez diligenciados por el personal de salud competente, se constituyen en la prueba del nacimiento y sirven como documento antecedente para efectuar la inscripción del hecho vital, ante la respectiva oficina de registro civil. Estos permiten unificar en el nivel nacional la información relacionada con el nacimiento.<br />
+<br />
+El certificado de nacido vivo consta de un certificado antecedente que incluye las variables requeridas para el registro civil y que debe ser entregado a los padres del nacido vivo, para que cumpla con dicho trámite y un certificado completo, que es el que recibe la Dirección Territorial de Salud y es enviado al DANE, donde se desarrollan los respectivos procesos de crítica, codificación, grabación, control de calidad y procesamiento.<br />
+<br />
+El certificado de nacido vivo se divide en tres (3) capítulos:<br />
+<br />
+• El primero (preguntas 2 a 18), corresponde a los datos propios del nacimiento.<br />
+<br />
+• El segundo (preguntas 19 a 33), destinado a registrar algunos datos de los padres del recién nacido.<br />
+<br />
+• El tercero (preguntas 34 a 40), contiene los datos de quien diligencia el certificado.<br />
+<br />
+El certificado de nacido vivo es expedido por el médico o enfermera que haya asistido el parto. En las áreas del país donde no se dispone de este recurso, el Ministerio de Protección Social ha autorizado a auxiliares de enfermería y promotoras de salud para su respectivo diligenciamiento.<br />
+<br />
+<br />
+CERTIFICADO DE DEFUNCIÓN <br />
+<br />
+Este instrumento recoge la información de la defunción, facilitando así el seguimiento de los programas institucionales y gubernamentales desarrollados para evaluar su impacto.<br />
+<br />
+Debe diligenciarse a todo fallecido que haya sido considerado nacido vivo, aunque la muerte suceda por causa natural o violenta y para las defunciones que ocurran antes o durante el parto, nominadas &quot;muertes fetales&quot;.<br />
+<br />
+El certificado de defunción está dividido en cinco capítulos:<br />
+<br />
+a. El primero (preguntas 2 a 24) corresponde a la información general de la defunción, y se constituye en el desprendible que sirve como documento antecedente para la inscripción del evento en el registro civil.<br />
+<br />
+b. El segundo (preguntas 25 a 36) incluye aspectos relacionados con las defunciones fetales o de menores de un año.<br />
+<br />
+c. El tercero (preguntas 37 a 39) contempla aspectos relacionados con las defunciones de mujeres en edad fértil, con el propósito de captar la mortalidad materna durante el embarazo, el parto, el puerperio y la mortalidad materna tardía.<br />
+<br />
+d. El cuarto (preguntas 40 a 42) uso específico para casos de muertes violentas.<br />
+<br />
+e. El quinto (preguntas 43 a 46) destinado a consignar las causas de la defunción o la causa probable de la defunción en los casos constatados por personal no médico (de salud autorizado y funcionarios de registro civil).<br />
+<br />
+f. La última parte del certificado consigna la información correspondiente a quien certifica la muerte (47-53).<br />
+<br />
+Por último, se relacionan los datos de quien certifica la defunción (apellidos y nombres, documento de identidad, profesión, registro profesional, lugar y fecha de expedición del certificado y firma).</span>
+            </div>
+</div>
+    </div>
+                
+    <div id="metadata-data_processing" class="section-data_processing">
+        <h2 class="xsl-subtitle">Procesamiento de datos</h2>
+        <div class="field field-metadata.study_desc.method.data_collection.cleaning_operations">
+    <div class="xsl-caption field-caption">Operaciones de limpieza</div>
+    <div class="field-value">
+                    <span>CONSOLIDACIÓN DE TABLA DE DATOS NACIONAL - DANE CENTRAL <br />
+<br />
+Se recibe registro administrativo, se carga en base de datos DANE y se realizan revisiones de calidad.<br />
+<br />
+<br />
+PROCESAMIENTO DE DATOS <br />
+<br />
+<br />
+TIPOS DE CODIFICACIÓN Y CLASIFICACIONES <br />
+<br />
+La codificación de mortalidad se apoya en el aplicativo IRIS de codificación automática de causas de defunción - que aplica consitentemente las reglas CIE. Posteriormente, esta codificación automática y la codificación de certificados cuyo texto o relaciones no fue posible reconocer de forma automática, es revisada y/o codificada manualmente por el equipo experto en el tema; teniendo como base la Clasificación Estadística Internacional de Enfermedades y Problemas Relacionados con la Salud (CIE-10), mediante la cual se asignan los códigos a las causas de defunción y se selecciona la causa básica de muerte.<br />
+<br />
+<br />
+FORMA DE CODIFICACIÓN <br />
+<br />
+Las estadísticas de mortalidad tienen como formato fuente el certificado de defunción. A partir de esta información, el codificador transforma los diagnósticos (enfermedades o causas de defunción) en códigos, con el fin de permitir la sistematización necesaria para la producción de las estadísticas. <br />
+<br />
+En este proceso, la CIE es el instrumento básico que utiliza el codificador para asignar el código correcto a los diagnósticos anotados por el médico y, posteriormente, seleccionar y codificar la causa básica de defunción, que es la utilizada para procesar la información y presentar las estadísticas de mortalidad para el país.<br />
+<br />
+La selección de la causa básica de defunción es el proceso mediante el cual se determina la patología que originó la cadena de eventos, que llevaron a la muerte. La afección que aparezca registrada en la última línea utilizada de la parte I del certificado, es la causa básica de defunción utilizada para la tabulación, cuando hay un apropiado diligenciamiento del certificado de defunción; sin embargo, la mayoría de las veces esto no se cumple, por ello hay que aplicar los procedimientos que dicta la CIE-10.<br />
+<br />
+La actividad de selección de causa básica se resume así:<br />
+<br />
+• Asignación de códigos por defecto a causas directas y antecedentes informadas.<br />
+<br />
+• Selección de la causa antecedente originaria.<br />
+<br />
+• Generación de la causa múltiple que consolida las decisiones y cambios efectuados por el motor de búsqueda MUSE sobre las códigos por defecto asignados inicialmente. <br />
+<br />
+Nota: este detalle corresponde al nuevo campo CAUSA_MULT, que reemplaza el anterior detalle de códigos uno a uno para las causas directas, antecedentes y patológicas.<br />
+<br />
+• Selección de la causa básica de muerte, mediante la aplicación de las reglas de selección y de modificación, si es necesario.<br />
+<br />
+Además de los tres volúmenes de la CIE- 10 indispensables para el proceso de codificación, se debe tener en cuenta la siguiente documentación:<br />
+<br />
+• Normas e instrucciones para la codificación de mortalidad fetal y neonatal.<br />
+<br />
+• Normas e instrucciones para la codificación de mortalidad materna.<br />
+<br />
+• Diccionario médico.<br />
+<br />
+<br />
+ADECUACIÓN DE ARCHIVOS <br />
+<br />
+El MSPS dispone el registro administrativo de forma periodica, según cronograma - via FTP.<br />
+<br />
+Esta información en formato de base de datos es extraida, transformada y cargada en base de datos DANE.<br />
+<br />
+<br />
+VERIFICACIÓN DE LA CONSISTENCIA INTERNA DE LOS DATOS Y AJUSTES <br />
+<br />
+En el DANE Central se realiza la revisión de consistencia y calidad de la información consolidada, identificando las variables inconsistentes. Las inconsistencias que ameritan revisión o verificación con la fuente, son solicitadas y tramitadas con la fuente.<br />
+<br />
+El DANE Central recibe las correcciones y actualiza las tablas de datos.</span>
+            </div>
+</div>
+<div class="field field-metadata.study_desc.method.data_collection.method_notes">
+    <div class="xsl-caption field-caption">Otro procesamiento</div>
+    <div class="field-value">
+                    <span>DISTRIBUCIÓN Y RECOLECCIÓN DE CERTIFICADOS DILIGENCIADOS<br />
+<br />
+El DANE imprime los certificados de nacido vivo y de defunción (certificado estadístico y certificado antecedente), y los distribuye a las direcciones territoriales de salud, mediante sus sedes territoriales. Las direcciones locales o municipales de salud reciben de las direcciones departamentales los certificados para ser entregados a hospitales, clínicas, centros y puestos de salud, IPS, unidades locales de medicina legal, médicos particulares y oficinas de registro civil (registradurías y notarías). Los certificados de nacido vivo y de defunción antecedentes para el registro civil deben ser presentados como requisito para efectuar la inscripción del hecho vital ante la oficina de registro civil (registradurías, notarías, inspecciones de policía y corregidurías autorizadas).  Una vez ocurre el hecho vital, el médico que atiende el evento diligencia el certificado en el aplicativo dispuesto por el MSPS, RUAF-ND, el cual ingresa de manera sincrónica. La información consolidada se envía al DANE de manera periódica en formato de base de datos, donde se realizan los procesos de calidad, codificación.</span>
+            </div>
+</div>
+    </div>
+                
+    <div id="metadata-data_appraisal" class="section-data_appraisal">
+        <h2 class="xsl-subtitle">Indicadores de la Calidad/Evaluación de la Calidad</h2>
+        <div class="field field-metadata.study_desc.method.analysis_info.data_appraisal">
+    <div class="xsl-caption field-caption">Data Appraisal</div>
+    <div class="field-value">
+                    <span>ANÁLISIS DE MUESTRA - NACIDOS VIVOS Y DEFUNCIONES <br />
+<br />
+Se selecciona una muestra de certificados que sea representativa tanto para nacimientos, defunciones fetales como defunciones no fetales, con el fin de evaluar los procesos de diligenciamiento y codificación. <br />
+<br />
+Los certificados seleccionados son revisados con el fin de construir los indicadores de calidad y exhaustividad para cada uno de los procesos definidos.<br />
+<br />
+<br />
+DISEÑO DE INDICADORES <br />
+<br />
+A partir de la información del registro administrativo y una vez surtidos todos los procesos de codificación y control de calidad, se generan cuadros de salida de la información para ser consultada por el público, en valores absolutos a partir de la información de las siguientes variables:<br />
+<br />
+Nacimientos: sexo del nacido vivo, peso del nacido vivo al nacer, talla del nacido vivo al nacer, fecha y lugar del nacimiento, el parto fue atendido por, sitio del parto, de acuerdo con la cultura, pueblo o rasgos físicos, el nacido vivo es reconocido por sus padres como: Datos de la madre y del padre, edad de la madre a la fecha de parto, estado conyugal de la madre, último año de estudios que aprobó la madre, régimen de seguridad social en salud de la madre, lugar y área de residencia habitual de la madre, edad del padre a la fecha del nacimiento de este hijo y último año de estudios que aprobó el padre.<br />
+<br />
+Defunciones: tipo de defunción (fetal, no fetal), sexo del fallecido, lugar, área y sitio donde ocurrió la defunción, estado conyugal del fallecido, edad del fallecido, último año de estudios que aprobó el fallecido, régimen de seguridad social en salud del fallecido (para muerte fetal o menor de un año, el de la madre), lugar y área de residencia habitual del fallecido (para muerte fetal o de menor de una año, el de la madre), persona que certifica la defunción, causa múltiple y causa básica de defunción (codificadas según la Clasificación Estadística Internacional de Enfermedades y Problemas relacionados con la Salud, CIE 10).</span>
+            </div>
+</div>
+    </div>
+                                                                                
+    <div id="metadata-data_access" class="section-data_access">
+        <h2 class="xsl-subtitle">Acceso a los datos</h2>
+        <div class="table-responsive field field-metadata.study_desc.data_access.dataset_use.contact">
+    <div class="xsl-caption field-caption">Contacto</div>
+    <div class="field-value">                
+                        
+        <table class="table table-bordered table-striped table-condensed xsl-table table-grid">
+            <tr>
+                                    <th>Nombre</th>
+                                    <th>Afiliación</th>
+                                    <th>Email</th>
+                                    <th>URI</th>
+                            </tr>
+            
+                            <tr>
+                                                                    <td>
+                                                            Departamento Administrativo Nacional de Estadísticas                                
+                        </td>
+                                                                    <td>
+                                                            Gobierno Nacional                                
+                        </td>
+                                                                    <td>
+                                                            contacto@dane.gov.co                                  
+                        </td>
+                                                                    <td>
+                                                            www.dane.gov.co                                  
+                        </td>
+                                        
+                </tr>
+                    </table>
+        
+    </div>
+</div>
+<div class="table-responsive field field-metadata.study_desc.distribution_statement.contact">
+    <div class="xsl-caption field-caption">Contacto</div>
+    <div class="field-value">                
+                        
+        <table class="table table-bordered table-striped table-condensed xsl-table table-grid">
+            <tr>
+                                    <th>Nombre</th>
+                                    <th>Afiliación</th>
+                                    <th>Correo electrónico</th>
+                                    <th>URI</th>
+                            </tr>
+            
+                            <tr>
+                                                                    <td>
+                                                            contacto@dane.gov.co                                
+                        </td>
+                                                                    <td>
+                                                            DANE                                
+                        </td>
+                                                                    <td>
+                                                            contacto@dane.gov.co                                
+                        </td>
+                                                                    <td>
+                                                            http://www.dane.gov.co/index.php/contactenos                                
+                        </td>
+                                        
+                </tr>
+                    </table>
+        
+    </div>
+</div>
+<div class="table-responsive field field-metadata.study_desc.data_access.dataset_use.conf_dec">
+    <div class="xsl-caption field-caption">Declaración de confidencialidad</div>
+    <div class="field-value">                
+                        Ley 79 de 1993 Artículo 5:
+ 
+Los datos suministrados al Departamento Administrativo Nacional de Estadística DANE, en el desarrollo de los censos y encuestas, no podrán darse a conocer al público ni a las entidades u organismos oficiales, ni a las autoridades públicas, sino únicamente en resúmenes numéricos, que no hagan posible deducir de ellos información alguna de carácter individual que pudiera utilizarse para fines comerciales, de tributación fiscal, de investigación judicial o cualquier otro diferente del propiamente estadístico.        
+    </div>
+</div>
+<div class="field field-metadata.study_desc.data_access.dataset_use.conditions">
+    <div class="xsl-caption field-caption">Condiciones</div>
+    <div class="field-value">
+                    <span>El acceso a los microdatos anonimizados de uso público es de carácter gratuito y estará disponible en la página Web del DANE.<br />
+<br />
+El acceso a los microdatos anonimizados por licencia,cuando requiera procesamientos adicionales, podrá tener un costo que será definido mediante acto administrativo.</span>
+            </div>
+</div>
+<div class="field field-metadata.study_desc.data_access.dataset_use.cit_req">
+    <div class="xsl-caption field-caption">Requisito de cita</div>
+    <div class="field-value">
+                    <span>Se autoriza el uso de la información contenida en esta portal, siempre y cuando se haga la siguiente cita textual: &quot;Fuente: Departamento Administrativo Nacional de Estadística: www.dane.gov.co . Queda en cambio prohibida la copia o reproducción de los datos en cualquier medio electrónico (redes, bases de datos, cd rom, diskettes) que permita la disponibilidad de esta información a múltiples usuarios sin el previo visto bueno del DANE por medio escrito.<br />
+ <br />
+Calidad de la información. Los datos y la información en general que aparecen en este portal se han introducido siguiendo estrictos procedimientos de control de calidad. No obstante, el DANE no se responsabiliza por el uso e interpretación realizado por terceros.</span>
+            </div>
+</div>
+    </div>
+                
+    <div id="metadata-disclaimer_copyright" class="section-disclaimer_copyright">
+        <h2 class="xsl-subtitle">Descargo de responsabilidad derechos de autor</h2>
+        <div class="field field-metadata.study_desc.production_statement.copyright">
+    <div class="xsl-caption field-caption">Derechos de autor</div>
+    <div class="field-value">
+                    <span>Ley 1032 de 2006</span>
+            </div>
+</div>
+    </div>
+                                
+    <div id="metadata-metadata_production" class="section-metadata_production">
+        <h2 class="xsl-subtitle">Producción del metadato</h2>
+        <div class="field field-metadata.doc_desc.idno">
+    <div class="xsl-caption field-caption">ID del documento</div>
+    <div class="field-value">
+                    <span>COL-DANE-EEVV-2019</span>
+            </div>
+</div>
+<div class="table-responsive field field-metadata.doc_desc.producers">
+    <div class="xsl-caption field-caption">Productores</div>
+    <div class="field-value">                
+                        
+        <table class="table table-bordered table-striped table-condensed xsl-table table-grid">
+            <tr>
+                                    <th>Nombre</th>
+                                    <th>Abreviatura</th>
+                                    <th>Afiliación</th>
+                                    <th>Rol</th>
+                            </tr>
+            
+                            <tr>
+                                                                    <td>
+                                                            Luisa Fernanda Suarez León                                
+                        </td>
+                                                                    <td>
+                                                            Lfsuarezl@dane.gov.co                                
+                        </td>
+                                                                    <td>
+                                                            Dirección de Regulación, Planeación, Estandarización y Normalización- DIRPEN                                
+                        </td>
+                                                                    <td>
+                                                            Coordinadora Regulación                                
+                        </td>
+                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Martha Cecilia Leal Cruz                                
+                        </td>
+                                                                    <td>
+                                                            mclealc@dane.gov.co                                
+                        </td>
+                                                                    <td>
+                                                            Dirección de Censos y Demografia - DCD                                  
+                        </td>
+                                                                    <td>
+                                                            Documentador DCD                                
+                        </td>
+                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Rafael Humberto Zorro Cubides                                
+                        </td>
+                                                                    <td>
+                                                            rhzorroc@dane.gov.co                                
+                        </td>
+                                                                    <td>
+                                                            Dirección de Regulación, Planeación, Estandarización y Normalización - DIRPEN                                  
+                        </td>
+                                                                    <td>
+                                                            Actualizador DIRPEN                                
+                        </td>
+                                        
+                </tr>
+                            <tr>
+                                                                    <td>
+                                                            Marly Johanna Tellez López                                
+                        </td>
+                                                                    <td>
+                                                            mjtellezl@dane.gov.co                                
+                        </td>
+                                                                    <td>
+                                                            Dirección de Información, Mercadeo y Cultura Estadística – DIMCE                                
+                        </td>
+                                                                    <td>
+                                                            Verificador DIMCE                                
+                        </td>
+                                        
+                </tr>
+                    </table>
+        
+    </div>
+</div>
+<div class="field field-metadata.doc_desc.prod_date">
+    <div class="xsl-caption field-caption">Fecha de producción</div>
+    <div class="field-value">
+                    <span>2021-01-15</span>
+            </div>
+</div>
+    </div>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-linkify/2.1.8/linkify.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-linkify/2.1.8/linkify-jquery.min.js"></script>
+
+<script>
+    $(function() {
+        $(".metadata-container").linkify();
+    });
+</script>    </div></div>
+      </div>
+</div>
+<!-- end-tabs-->    
+   </div> 
+</div>
+
+
+<!--survey summary resources-->
+<script type="text/javascript">
+	function toggle_resource(element_id){
+		$("#"+element_id).parent(".resource").toggleClass("active");
+		$("#"+element_id).toggle();
+	}
+	
+	$(document).ready(function () { 
+		bind_behaviours();
+		
+		$(".show-datafiles").click(function(){
+			$(".data-files .hidden").removeClass("hidden");
+			$(".show-datafiles").hide();
+			return false;
+		});
+
+	});	
+	
+	function bind_behaviours() {
+		//show variable info by id
+		$(".resource-info").unbind('click');
+		$(".resource-info").click(function(){
+			if($(this).attr("id")!=''){
+				toggle_resource('info_'+$(this).attr("id"));
+			}
+			return false;
+		});			
+	}
+</script>                </div>
+                       
+
+</div>
+
+<!-- page footer -->
+ <!-- footer -->
+ <div id="footer">
+    <!-- contedores de footer se pueden incluir los que sean necesarios. de debe crear una clase de flexbox para el contenedor principal y a ese elementos los atribuitos que se deseen para su alineacion y posicionamiento la clase creada es content_footerinfo, que esta en custom.css. Esta nueva libreria de flexbox esta inlcuida dentro del header del archivo y puede ser mezclado con boostrap sin problemas-->
+    <div class="container-fluid bg-footer footer-enc content_footerinfo">
+       <div class="content-footer_dane container-fluid row" style="">
+
+          <div class="item-info_dane col-12 col-lg-3">
+             <div class="icon-position"> <img src=https://microdatos.dane.gov.co/themes/nada/images/call-icon.png> </div>
+             <div class="text-info_dane">
+                <h5>CALL CENTER</h5>
+                <p><strong>Conmutador:</strong> (+57 601) 597 8300 ó (+57 601) 597 8398 / <strong> <br>Línea gratuita de
+                      atención:</strong> 01 8000
+                   912002 </p>
+             </div>
+          </div>
+
+          <!--espacio 2-->
+          <div class="col-12 col-lg-3 item-info_dane">
+             <div class="icon-position"> <img src=https://microdatos.dane.gov.co/themes/nada/images/clock-icon.png> </div>
+             <div class="text-info_dane">
+                <h5>HORARIO DE ATENCIÓN</h5>
+                <p>Lunes a viernes 8:00 a 17:00</p>
+             </div>
+          </div>
+
+          <!--espacio 3-->
+          <div class="col-12 col-lg-3 item-info_dane" style="border: none;">
+             <div class="icon-position"> <img src=https://microdatos.dane.gov.co/themes/nada/images/location-icon.png>
+             </div>
+             <div class="text-info_dane">
+                <h5>DIRECCIÓN</h5>
+                <p>Carrera 59 No. 26-70 Interior I - CAN / <strong>Bogotá D.C. - Colombia </strong></p>
+                <p><strong></strong></p>
+             </div>
+          </div>
+
+          <div class="logo-gobierno col-12 col-lg-3">
+             <!-- <img class="pull-right img-fluid hidden-xs mx-auto"
+                src="https://www.dane.gov.co/files/images/nuevaImg/logo-gobierno.png" style="width: 70%; "> -->
+          </div>
+       </div>
+    </div>
+ </div></body>
+
+</html>
