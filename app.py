@@ -55,76 +55,277 @@ app = dash.Dash(__name__, title='Análisis de Mortalidad Colombia 2019',
                 external_stylesheets=external_stylesheets,
                 suppress_callback_exceptions=True)
 
-# Layout simplificado para evitar errores de sintaxis
+# Layout organizado y profesional
 app.layout = html.Div([
-    html.H1('Análisis de Mortalidad Colombia 2019', style={'textAlign': 'center'}),
+    # Header
     html.Div([
         html.Div([
-            html.H3('Filtros'),
-            html.Label('Departamento:'),
-            dcc.Dropdown(
-                id='departamento-filter',
-                options=[{'label': 'Todos', 'value': 'all'}] +
-                       [{'label': dept, 'value': dept} for dept in ['Bogotá', 'Antioquia', 'Valle del Cauca']],
-                value='all'
-            ),
-            html.Label('Sexo:'),
-            dcc.Dropdown(
-                id='sexo-filter',
-                options=[
-                    {'label': 'Todos', 'value': 'all'},
-                    {'label': 'Masculino', 'value': '1'},
-                    {'label': 'Femenino', 'value': '2'}
-                ],
-                value='all'
-            ),
-        ], style={'width': '30%', 'display': 'inline-block'}),
-        html.Div([
-            html.H3('Estadísticas'),
-            html.Div(id='total-muertes', children='Cargando...'),
-            html.Div(id='muertes-hombres', children='Cargando...'),
-            html.Div(id='muertes-mujeres', children='Cargando...'),
-        ], style={'width': '30%', 'display': 'inline-block'}),
-    ]),
+            html.H1('📊 Dashboard de Análisis de Mortalidad', style={
+                'color': '#2c3e50',
+                'textAlign': 'center',
+                'marginBottom': '10px',
+                'fontSize': '2.8rem',
+                'fontWeight': 'bold'
+            }),
+            html.P('Colombia 2019 - Datos Oficiales del DANE', style={
+                'color': '#7f8c8d',
+                'textAlign': 'center',
+                'fontSize': '1.2rem',
+                'marginBottom': '30px'
+            })
+        ], className='col-12')
+    ], className='row justify-content-center mb-5'),
+
+    # Panel de Control - Filtros Interactivos
     html.Div([
         html.Div([
-            html.H4('Distribución por Departamento'),
-            dcc.Graph(id='mapa-departamentos')
-        ], style={'width': '45%', 'display': 'inline-block'}),
-        html.Div([
-            html.H4('Tendencia Mensual'),
-            dcc.Graph(id='lineas-meses')
-        ], style={'width': '45%', 'display': 'inline-block'}),
-    ]),
+            html.Div([
+                html.H4('🎛️ Panel de Control', className='text-primary mb-4'),
+                html.Div([
+                    html.Div([
+                        html.Label('🏛️ Filtrar por Departamento:', className='form-label fw-bold'),
+                        dcc.Dropdown(
+                            id='departamento-filter',
+                            options=[{'label': '📍 Todos los Departamentos', 'value': 'all'}] +
+                                   [{'label': f'📍 {dept}', 'value': dept} for dept in sorted(df_mortality['NOM_DPTO'].dropna().unique())],
+                            value='all',
+                            className='mb-3',
+                            style={'fontSize': '14px'}
+                        ),
+                    ], className='col-md-4 mb-3'),
+                    html.Div([
+                        html.Label('👥 Filtrar por Sexo:', className='form-label fw-bold'),
+                        dcc.Dropdown(
+                            id='sexo-filter',
+                            options=[
+                                {'label': '👥 Todos los Sexos', 'value': 'all'},
+                                {'label': '👨 Masculino', 'value': '1'},
+                                {'label': '👩 Femenino', 'value': '2'},
+                                {'label': '⚧ Indeterminado', 'value': '3'}
+                            ],
+                            value='all',
+                            className='mb-3',
+                            style={'fontSize': '14px'}
+                        ),
+                    ], className='col-md-4 mb-3'),
+                    html.Div([
+                        html.Label('🎂 Filtrar por Grupo de Edad:', className='form-label fw-bold'),
+                        dcc.Dropdown(
+                            id='edad-filter',
+                            options=[{'label': '🎂 Todos los Grupos', 'value': 'all'}] +
+                                   [{'label': f'🎂 {grupo}', 'value': grupo} for grupo in sorted(df_mortality['GRUPO_EDAD1'].dropna().unique())],
+                            value='all',
+                            className='mb-3',
+                            style={'fontSize': '14px'}
+                        ),
+                    ], className='col-md-4 mb-3'),
+                ], className='row')
+            ], className='card-body')
+        ], className='card shadow-sm mb-5')
+    ], className='container-fluid mb-5'),
+
+    # Métricas Principales
     html.Div([
         html.Div([
-            html.H4('Ciudades Más Violentas'),
-            dcc.Graph(id='barras-violentas')
-        ], style={'width': '45%', 'display': 'inline-block'}),
+            html.Div([
+                html.Div([
+                    html.I(className="fas fa-skull-crossbones fa-3x", style={'color': '#e74c3c'}),
+                    html.H2(id='total-muertes', style={'color': '#2c3e50', 'margin': '15px 0 5px 0', 'fontSize': '2.5rem', 'fontWeight': 'bold'}),
+                    html.P('Total de Muertes', style={'color': '#7f8c8d', 'margin': '0', 'fontSize': '1rem', 'fontWeight': '500'})
+                ], className='text-center p-4')
+            ], className='card h-100 shadow-sm border-0', style={'background': 'linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%)'})
+        ], className='col-md-4 mb-4'),
         html.Div([
-            html.H4('Ciudades Más Seguras'),
-            dcc.Graph(id='circular-menor-mortalidad')
-        ], style={'width': '45%', 'display': 'inline-block'}),
-    ]),
+            html.Div([
+                html.Div([
+                    html.I(className="fas fa-mars fa-3x", style={'color': '#3498db'}),
+                    html.H2(id='muertes-hombres', style={'color': '#2c3e50', 'margin': '15px 0 5px 0', 'fontSize': '2.5rem', 'fontWeight': 'bold'}),
+                    html.P('Muertes Masculinas', style={'color': '#7f8c8d', 'margin': '0', 'fontSize': '1rem', 'fontWeight': '500'})
+                ], className='text-center p-4')
+            ], className='card h-100 shadow-sm border-0', style={'background': 'linear-gradient(135deg, #74b9ff 0%, #0984e3 100%)'})
+        ], className='col-md-4 mb-4'),
+        html.Div([
+            html.Div([
+                html.Div([
+                    html.I(className="fas fa-venus fa-3x", style={'color': '#e84393'}),
+                    html.H2(id='muertes-mujeres', style={'color': '#2c3e50', 'margin': '15px 0 5px 0', 'fontSize': '2.5rem', 'fontWeight': 'bold'}),
+                    html.P('Muertes Femeninas', style={'color': '#7f8c8d', 'margin': '0', 'fontSize': '1rem', 'fontWeight': '500'})
+                ], className='text-center p-4')
+            ], className='card h-100 shadow-sm border-0', style={'background': 'linear-gradient(135deg, #fd79a8 0%, #e84393 100%)'})
+        ], className='col-md-4 mb-4'),
+        html.Div([
+            html.Div([
+                html.Div([
+                    html.I(className="fas fa-city fa-3x", style={'color': '#00b894'}),
+                    html.H2(id='deptos-afectados', style={'color': '#2c3e50', 'margin': '15px 0 5px 0', 'fontSize': '2.5rem', 'fontWeight': 'bold'}),
+                    html.P('Departamentos', style={'color': '#7f8c8d', 'margin': '0', 'fontSize': '1rem', 'fontWeight': '500'})
+                ], className='text-center p-4')
+            ], className='card h-100 shadow-sm border-0', style={'background': 'linear-gradient(135deg, #55efc4 0%, #00b894 100%)'})
+        ], className='col-md-4 mb-4')
+    ], className='row justify-content-center mb-5'),
+
+    # Sección 1: Distribución Geográfica
     html.Div([
-        html.H4('Principales Causas de Muerte'),
-        dash_table.DataTable(id='tabla-causas', columns=[
-            {'name': 'Código', 'id': 'codigo'},
-            {'name': 'Causa', 'id': 'causa'},
-            {'name': 'Total', 'id': 'total'}
-        ])
-    ]),
+        html.Div([
+            html.H3('📍 Distribución Geográfica de la Mortalidad', className='text-center text-primary mb-4'),
+            html.Div([
+                html.Div([
+                    dcc.Graph(
+                        id='mapa-departamentos',
+                        config={'displayModeBar': True, 'displaylogo': False},
+                        style={'height': '500px'}
+                    )
+                ], className='card shadow-sm'),
+                html.P('*Los datos se actualizan automáticamente según los filtros aplicados', className='text-muted mt-2 small')
+            ], className='col-12')
+        ], className='row mb-5')
+    ], className='container-fluid'),
+
+    # Sección 2: Análisis Temporal
     html.Div([
         html.Div([
-            html.H4('Distribución por Sexo'),
-            dcc.Graph(id='barras-apiladas-sexo')
-        ], style={'width': '45%', 'display': 'inline-block'}),
+            html.H3('📈 Análisis Temporal', className='text-center text-success mb-4'),
+            html.Div([
+                html.Div([
+                    html.H5('Tendencia Mensual de Muertes', className='card-title text-center'),
+                    dcc.Graph(
+                        id='lineas-meses',
+                        config={'displayModeBar': True, 'displaylogo': False},
+                        style={'height': '400px'}
+                    )
+                ], className='card shadow-sm p-3 mb-4')
+            ], className='col-12')
+        ], className='row mb-5')
+    ], className='container-fluid'),
+
+    # Sección 3: Análisis de Violencia
+    html.Div([
         html.Div([
-            html.H4('Distribución por Edad'),
-            dcc.Graph(id='histograma-edad')
-        ], style={'width': '45%', 'display': 'inline-block'}),
-    ])
-])
+            html.H3('🔪 Análisis de Violencia y Seguridad', className='text-center text-danger mb-4'),
+            html.Div([
+                html.Div([
+                    html.H5('Ciudades Más Violentas (Homicidios)', className='card-title text-center'),
+                    dcc.Graph(
+                        id='barras-violentas',
+                        config={'displayModeBar': True, 'displaylogo': False},
+                        style={'height': '400px'}
+                    )
+                ], className='card shadow-sm p-3 mb-4')
+            ], className='col-md-6'),
+            html.Div([
+                html.Div([
+                    html.H5('Ciudades Más Seguras (Menor Mortalidad)', className='card-title text-center'),
+                    dcc.Graph(
+                        id='circular-menor-mortalidad',
+                        config={'displayModeBar': True, 'displaylogo': False},
+                        style={'height': '400px'}
+                    )
+                ], className='card shadow-sm p-3 mb-4')
+            ], className='col-md-6')
+        ], className='row mb-5')
+    ], className='container-fluid'),
+
+    # Sección 4: Causas de Muerte
+    html.Div([
+        html.Div([
+            html.H3('⚕️ Principales Causas de Muerte', className='text-center text-warning mb-4'),
+            html.Div([
+                html.Div([
+                    dash_table.DataTable(
+                        id='tabla-causas',
+                        columns=[
+                            {'name': '🏷️ Código CIE-10', 'id': 'codigo'},
+                            {'name': '📋 Descripción', 'id': 'causa'},
+                            {'name': '📊 Casos Reportados', 'id': 'total'}
+                        ],
+                        style_table={
+                            'overflowX': 'auto',
+                            'borderRadius': '10px',
+                            'boxShadow': '0 4px 6px rgba(0, 0, 0, 0.1)'
+                        },
+                        style_cell={
+                            'textAlign': 'left',
+                            'padding': '15px',
+                            'fontSize': '14px',
+                            'border': '1px solid #dee2e6',
+                            'backgroundColor': 'white'
+                        },
+                        style_header={
+                            'backgroundColor': '#f8f9fa',
+                            'fontWeight': 'bold',
+                            'border': '2px solid #dee2e6',
+                            'textAlign': 'center',
+                            'fontSize': '16px',
+                            'color': '#495057'
+                        },
+                        style_data_conditional=[
+                            {'if': {'row_index': 'odd'}, 'backgroundColor': '#f8f9fa'},
+                            {'if': {'row_index': 'even'}, 'backgroundColor': 'white'}
+                        ],
+                        page_size=10,
+                        style_as_list_view=True
+                    )
+                ], className='card shadow-sm p-4')
+            ], className='col-12')
+        ], className='row mb-5')
+    ], className='container-fluid'),
+
+    # Sección 5: Análisis Demográfico
+    html.Div([
+        html.Div([
+            html.H3('👥 Análisis Demográfico', className='text-center text-info mb-4'),
+            html.Div([
+                html.Div([
+                    html.H5('Distribución por Sexo y Departamento', className='card-title text-center'),
+                    dcc.Graph(
+                        id='barras-apiladas-sexo',
+                        config={'displayModeBar': True, 'displaylogo': False},
+                        style={'height': '500px'}
+                    )
+                ], className='card shadow-sm p-3 mb-4')
+            ], className='col-md-6'),
+            html.Div([
+                html.Div([
+                    html.H5('Distribución por Grupos de Edad', className='card-title text-center'),
+                    dcc.Graph(
+                        id='histograma-edad',
+                        config={'displayModeBar': True, 'displaylogo': False},
+                        style={'height': '500px'}
+                    )
+                ], className='card shadow-sm p-3 mb-4')
+            ], className='col-md-6')
+        ], className='row mb-5')
+    ], className='container-fluid'),
+
+    # Footer
+    html.Div([
+        html.Div([
+            html.Hr(style={'border': '1px solid #dee2e6', 'margin': '40px 0'}),
+            html.Div([
+                html.Div([
+                    html.H6('📊 Fuente de Datos', className='text-muted mb-2'),
+                    html.P('Departamento Administrativo Nacional de Estadística (DANE)', className='mb-0 small'),
+                    html.P('Estadísticas Vitales 2019', className='mb-0 small')
+                ], className='col-md-4'),
+                html.Div([
+                    html.H6('🛠️ Tecnologías', className='text-muted mb-2'),
+                    html.P('Python + Dash + Plotly + Pandas', className='mb-0 small'),
+                    html.P('Desplegado en Render.com', className='mb-0 small')
+                ], className='col-md-4'),
+                html.Div([
+                    html.H6('📅 Última Actualización', className='text-muted mb-2'),
+                    html.P('Noviembre 2025', className='mb-0 small'),
+                    html.P('Versión 1.0.0', className='mb-0 small')
+                ], className='col-md-4')
+            ], className='row text-center'),
+            html.P('🔍 Aplicación desarrollada para el análisis de datos de mortalidad en Colombia', className='text-center text-muted mt-4 mb-0 small')
+        ], className='container')
+    ], style={'backgroundColor': '#f8f9fa', 'padding': '40px 0', 'marginTop': '60px'})
+], style={
+    'backgroundColor': '#ffffff',
+    'minHeight': '100vh',
+    'fontFamily': '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif'
+})
 
 # Callbacks para actualizar gráficos
 @app.callback(
