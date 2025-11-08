@@ -28,6 +28,14 @@ print("Datos cargados exitosamente")
 print(f"Registros de mortalidad: {len(df_mortality)}")
 print(f"Registros Divipola: {len(df_divipola)}")
 
+# Ajustar nombres de columnas en df_mortality
+df_mortality = df_mortality.rename(columns={
+    'COD_DEPARTAMENTO': 'COD_DPTO',
+    'COD_MUNICIPIO': 'COD_MUNIC',
+    'AO': 'ANO',
+    'COD_MUERTE': 'CAUSA_DEFUNCION'
+})
+
 # Renombrar columnas para consistencia
 df_divipola = df_divipola.rename(columns={
     'COD_DEPARTAMENTO': 'COD_DPTO',
@@ -36,13 +44,15 @@ df_divipola = df_divipola.rename(columns={
     'MUNICIPIO': 'NOM_MUNIC'
 })
 
-# Ajustar nombres de columnas en df_mortality
-df_mortality = df_mortality.rename(columns={
-    'COD_DEPARTAMENTO': 'COD_DPTO',
-    'COD_MUNICIPIO': 'COD_MUNIC',
-    'AO': 'ANO',
-    'COD_MUERTE': 'CAUSA_DEFUNCION'
-})
+# Agregar columnas de nombres de departamento y municipio desde Divipola
+df_mortality = df_mortality.merge(df_divipola[['COD_DPTO', 'NOM_DPTO', 'COD_MUNIC', 'NOM_MUNIC']].drop_duplicates(),
+                                 left_on=['COD_DPTO', 'COD_MUNIC'],
+                                 right_on=['COD_DPTO', 'COD_MUNIC'],
+                                 how='left')
+
+# Manejar valores NaN en NOM_DPTO
+df_mortality['NOM_DPTO'] = df_mortality['NOM_DPTO'].fillna('Desconocido')
+df_mortality['NOM_MUNIC'] = df_mortality['NOM_MUNIC'].fillna('Desconocido')
 
 # Estilos CSS personalizados
 external_stylesheets = [
@@ -60,14 +70,14 @@ app.layout = html.Div([
     # Header
     html.Div([
         html.Div([
-            html.H1('📊 Dashboard de Análisis de Mortalidad', style={
+            html.H1('📊 Análisis de Mortalidad en Colombia 2019', style={
                 'color': '#2c3e50',
                 'textAlign': 'center',
                 'marginBottom': '10px',
                 'fontSize': '2.8rem',
                 'fontWeight': 'bold'
             }),
-            html.P('Colombia 2019 - Datos Oficiales del DANE', style={
+            html.P('Basado en Datos Oficiales del DANE', style={
                 'color': '#7f8c8d',
                 'textAlign': 'center',
                 'fontSize': '1.2rem',
@@ -129,38 +139,38 @@ app.layout = html.Div([
         html.Div([
             html.Div([
                 html.Div([
-                    html.I(className="fas fa-skull-crossbones fa-3x", style={'color': '#e74c3c'}),
-                    html.H2(id='total-muertes', style={'color': '#2c3e50', 'margin': '15px 0 5px 0', 'fontSize': '2.5rem', 'fontWeight': 'bold'}),
-                    html.P('Total de Muertes', style={'color': '#7f8c8d', 'margin': '0', 'fontSize': '1rem', 'fontWeight': '500'})
+                    html.I(className="fas fa-skull-crossbones fa-3x", style={'color': '#ffffff'}),
+                    html.H2(id='total-muertes', style={'color': '#ffffff', 'margin': '15px 0 5px 0', 'fontSize': '2.5rem', 'fontWeight': 'bold'}),
+                    html.P('Total de Muertes', style={'color': '#ffffff', 'margin': '0', 'fontSize': '1rem', 'fontWeight': '500'})
                 ], className='text-center p-4')
-            ], className='card h-100 shadow-sm border-0', style={'background': 'linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%)'})
+            ], className='card h-100 shadow-sm border-0', style={'background': 'linear-gradient(135deg, #2c3e50 0%, #34495e 100%)'})
         ], className='col-md-4 mb-4'),
         html.Div([
             html.Div([
                 html.Div([
-                    html.I(className="fas fa-mars fa-3x", style={'color': '#3498db'}),
-                    html.H2(id='muertes-hombres', style={'color': '#2c3e50', 'margin': '15px 0 5px 0', 'fontSize': '2.5rem', 'fontWeight': 'bold'}),
-                    html.P('Muertes Masculinas', style={'color': '#7f8c8d', 'margin': '0', 'fontSize': '1rem', 'fontWeight': '500'})
+                    html.I(className="fas fa-mars fa-3x", style={'color': '#ffffff'}),
+                    html.H2(id='muertes-hombres', style={'color': '#ffffff', 'margin': '15px 0 5px 0', 'fontSize': '2.5rem', 'fontWeight': 'bold'}),
+                    html.P('Muertes Masculinas', style={'color': '#ffffff', 'margin': '0', 'fontSize': '1rem', 'fontWeight': '500'})
                 ], className='text-center p-4')
-            ], className='card h-100 shadow-sm border-0', style={'background': 'linear-gradient(135deg, #74b9ff 0%, #0984e3 100%)'})
+            ], className='card h-100 shadow-sm border-0', style={'background': 'linear-gradient(135deg, #3498db 0%, #2980b9 100%)'})
         ], className='col-md-4 mb-4'),
         html.Div([
             html.Div([
                 html.Div([
-                    html.I(className="fas fa-venus fa-3x", style={'color': '#e84393'}),
-                    html.H2(id='muertes-mujeres', style={'color': '#2c3e50', 'margin': '15px 0 5px 0', 'fontSize': '2.5rem', 'fontWeight': 'bold'}),
-                    html.P('Muertes Femeninas', style={'color': '#7f8c8d', 'margin': '0', 'fontSize': '1rem', 'fontWeight': '500'})
+                    html.I(className="fas fa-venus fa-3x", style={'color': '#ffffff'}),
+                    html.H2(id='muertes-mujeres', style={'color': '#ffffff', 'margin': '15px 0 5px 0', 'fontSize': '2.5rem', 'fontWeight': 'bold'}),
+                    html.P('Muertes Femeninas', style={'color': '#ffffff', 'margin': '0', 'fontSize': '1rem', 'fontWeight': '500'})
                 ], className='text-center p-4')
-            ], className='card h-100 shadow-sm border-0', style={'background': 'linear-gradient(135deg, #fd79a8 0%, #e84393 100%)'})
+            ], className='card h-100 shadow-sm border-0', style={'background': 'linear-gradient(135deg, #e84393 0%, #c0392b 100%)'})
         ], className='col-md-4 mb-4'),
         html.Div([
             html.Div([
                 html.Div([
-                    html.I(className="fas fa-city fa-3x", style={'color': '#00b894'}),
-                    html.H2(id='deptos-afectados', style={'color': '#2c3e50', 'margin': '15px 0 5px 0', 'fontSize': '2.5rem', 'fontWeight': 'bold'}),
-                    html.P('Departamentos', style={'color': '#7f8c8d', 'margin': '0', 'fontSize': '1rem', 'fontWeight': '500'})
+                    html.I(className="fas fa-city fa-3x", style={'color': '#ffffff'}),
+                    html.H2(id='deptos-afectados', style={'color': '#ffffff', 'margin': '15px 0 5px 0', 'fontSize': '2.5rem', 'fontWeight': 'bold'}),
+                    html.P('Departamentos', style={'color': '#ffffff', 'margin': '0', 'fontSize': '1rem', 'fontWeight': '500'})
                 ], className='text-center p-4')
-            ], className='card h-100 shadow-sm border-0', style={'background': 'linear-gradient(135deg, #55efc4 0%, #00b894 100%)'})
+            ], className='card h-100 shadow-sm border-0', style={'background': 'linear-gradient(135deg, #00b894 0%, #27ae60 100%)'})
         ], className='col-md-4 mb-4')
     ], className='row justify-content-center mb-5'),
 
@@ -466,11 +476,25 @@ def update_violent_cities(departamento, sexo, edad):
 
 @app.callback(
     dash.Output('circular-menor-mortalidad', 'figure'),
-    dash.Input('circular-menor-mortalidad', 'id')
+    [dash.Input('departamento-filter', 'value'),
+     dash.Input('sexo-filter', 'value'),
+     dash.Input('edad-filter', 'value')]
 )
-def update_low_mortality_cities(_):
+def update_low_mortality_cities(departamento, sexo, edad):
+    # Filtrar datos según selecciones
+    filtered_df = df_mortality.copy()
+
+    if departamento != 'all':
+        filtered_df = filtered_df[filtered_df['NOM_DPTO'] == departamento]
+
+    if sexo != 'all':
+        filtered_df = filtered_df[filtered_df['SEXO'].astype(str) == sexo]
+
+    if edad != 'all':
+        filtered_df = filtered_df[filtered_df['GRUPO_EDAD1'] == edad]
+
     # Agrupar por municipio
-    city_mortality = df_mortality.groupby(['COD_DPTO', 'COD_MUNIC']).size().reset_index(name='muertes')
+    city_mortality = filtered_df.groupby(['COD_DPTO', 'COD_MUNIC']).size().reset_index(name='muertes')
 
     # Unir con nombres
     city_mortality = city_mortality.merge(df_divipola[['COD_DPTO', 'COD_MUNIC', 'NOM_MUNIC']].drop_duplicates(),
@@ -487,11 +511,25 @@ def update_low_mortality_cities(_):
 
 @app.callback(
     dash.Output('tabla-causas', 'data'),
-    dash.Input('tabla-causas', 'id')
+    [dash.Input('departamento-filter', 'value'),
+     dash.Input('sexo-filter', 'value'),
+     dash.Input('edad-filter', 'value')]
 )
-def update_causes_table(_):
+def update_causes_table(departamento, sexo, edad):
+    # Filtrar datos según selecciones
+    filtered_df = df_mortality.copy()
+
+    if departamento != 'all':
+        filtered_df = filtered_df[filtered_df['NOM_DPTO'] == departamento]
+
+    if sexo != 'all':
+        filtered_df = filtered_df[filtered_df['SEXO'].astype(str) == sexo]
+
+    if edad != 'all':
+        filtered_df = filtered_df[filtered_df['GRUPO_EDAD1'] == edad]
+
     # Agrupar por causa de defunción
-    causes_data = df_mortality.groupby('CAUSA_DEFUNCION').size().reset_index(name='total')
+    causes_data = filtered_df.groupby('CAUSA_DEFUNCION').size().reset_index(name='total')
 
     # Crear descripciones básicas para las causas más comunes
     cause_descriptions = {
@@ -518,11 +556,25 @@ def update_causes_table(_):
 
 @app.callback(
     dash.Output('barras-apiladas-sexo', 'figure'),
-    dash.Input('barras-apiladas-sexo', 'id')
+    [dash.Input('departamento-filter', 'value'),
+     dash.Input('sexo-filter', 'value'),
+     dash.Input('edad-filter', 'value')]
 )
-def update_stacked_sex_chart(_):
+def update_stacked_sex_chart(departamento, sexo, edad):
+    # Filtrar datos según selecciones
+    filtered_df = df_mortality.copy()
+
+    if departamento != 'all':
+        filtered_df = filtered_df[filtered_df['NOM_DPTO'] == departamento]
+
+    if sexo != 'all':
+        filtered_df = filtered_df[filtered_df['SEXO'].astype(str) == sexo]
+
+    if edad != 'all':
+        filtered_df = filtered_df[filtered_df['GRUPO_EDAD1'] == edad]
+
     # Agrupar por departamento y sexo
-    sex_dept_data = df_mortality.groupby(['COD_DPTO', 'SEXO']).size().reset_index(name='muertes')
+    sex_dept_data = filtered_df.groupby(['COD_DPTO', 'SEXO']).size().reset_index(name='muertes')
 
     # Unir con nombres de departamentos
     sex_dept_data = sex_dept_data.merge(df_divipola[['COD_DPTO', 'NOM_DPTO']].drop_duplicates(),
@@ -540,9 +592,23 @@ def update_stacked_sex_chart(_):
 
 @app.callback(
     dash.Output('histograma-edad', 'figure'),
-    dash.Input('histograma-edad', 'id')
+    [dash.Input('departamento-filter', 'value'),
+     dash.Input('sexo-filter', 'value'),
+     dash.Input('edad-filter', 'value')]
 )
-def update_age_histogram(_):
+def update_age_histogram(departamento, sexo, edad):
+    # Filtrar datos según selecciones
+    filtered_df = df_mortality.copy()
+
+    if departamento != 'all':
+        filtered_df = filtered_df[filtered_df['NOM_DPTO'] == departamento]
+
+    if sexo != 'all':
+        filtered_df = filtered_df[filtered_df['SEXO'].astype(str) == sexo]
+
+    if edad != 'all':
+        filtered_df = filtered_df[filtered_df['GRUPO_EDAD1'] == edad]
+
     # Mapeo de grupos de edad según especificaciones
     age_groups = {
         0: 'Mortalidad neonatal',
@@ -578,10 +644,10 @@ def update_age_histogram(_):
     }
 
     # Aplicar mapeo
-    df_mortality['grupo_edad'] = df_mortality['GRUPO_EDAD1'].map(age_groups)
+    filtered_df['grupo_edad'] = filtered_df['GRUPO_EDAD1'].map(age_groups)
 
     # Contar por grupo
-    age_data = df_mortality['grupo_edad'].value_counts().reset_index()
+    age_data = filtered_df['grupo_edad'].value_counts().reset_index()
     age_data.columns = ['grupo', 'muertes']
 
     fig = px.bar(age_data, x='grupo', y='muertes',
