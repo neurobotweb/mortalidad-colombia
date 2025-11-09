@@ -65,7 +65,7 @@ app = dash.Dash(__name__, title='Análisis de Mortalidad Colombia 2019',
                 external_stylesheets=external_stylesheets,
                 suppress_callback_exceptions=True)
 
-# Layout organizado y profesional
+# Layout organizado
 app.layout = html.Div([
     # Header
     html.Div([
@@ -119,7 +119,11 @@ app.layout = html.Div([
                         ),
                     ], className='col-md-4 mb-3'),
                     html.Div([
-                        html.Label('🎂 Filtrar por Grupo de Edad:', className='form-label fw-bold'),
+                        html.Label([
+                            '🎂 Filtrar por Grupo de Edad:',
+                            html.I(className="fas fa-info-circle ml-2", id="edad-tooltip",
+                                   style={'cursor': 'pointer', 'color': '#007bff'})
+                        ], className='form-label fw-bold d-flex align-items-center'),
                         dcc.Dropdown(
                             id='edad-filter',
                             options=[{'label': '🎂 Todos los Grupos', 'value': 'all'}] +
@@ -128,6 +132,61 @@ app.layout = html.Div([
                             className='mb-3',
                             style={'fontSize': '14px'}
                         ),
+                        html.Div(id="tooltip-modal", children=[
+                            html.Div([
+                                html.Div([
+                                    html.Button("×", id="close-tooltip", style={
+                                        'position': 'absolute',
+                                        'top': '10px',
+                                        'right': '15px',
+                                        'background': 'none',
+                                        'border': 'none',
+                                        'fontSize': '24px',
+                                        'cursor': 'pointer',
+                                        'color': '#666',
+                                        'zIndex': '1001'
+                                    }),
+                                    html.H5("Referencia de Grupos de Edad", style={
+                                        'marginBottom': '20px',
+                                        'color': '#333',
+                                        'textAlign': 'center'
+                                    }),
+                                    html.Table([
+                                        html.Tr([html.Th("Código"), html.Th("Categoría"), html.Th("Rango de Edad")]),
+                                        html.Tr([html.Td("0-4"), html.Td("Mortalidad neonatal"), html.Td("Menor de 1 mes")]),
+                                        html.Tr([html.Td("5-6"), html.Td("Mortalidad infantil"), html.Td("1 a 11 meses")]),
+                                        html.Tr([html.Td("7-8"), html.Td("Primera infancia"), html.Td("1 a 4 años")]),
+                                        html.Tr([html.Td("9-10"), html.Td("Niñez"), html.Td("5 a 14 años")]),
+                                        html.Tr([html.Td("11"), html.Td("Adolescencia"), html.Td("15 a 19 años")]),
+                                        html.Tr([html.Td("12-13"), html.Td("Juventud"), html.Td("20 a 29 años")]),
+                                        html.Tr([html.Td("14-16"), html.Td("Adultez temprana"), html.Td("30 a 44 años")]),
+                                        html.Tr([html.Td("17-19"), html.Td("Adultez intermedia"), html.Td("45 a 59 años")]),
+                                        html.Tr([html.Td("20-24"), html.Td("Vejez"), html.Td("60 a 84 años")]),
+                                        html.Tr([html.Td("25-28"), html.Td("Longevidad/Centenarios"), html.Td("85 a 100+ años")]),
+                                        html.Tr([html.Td("29"), html.Td("Edad desconocida"), html.Td("Sin información")]),
+                                    ], className="table table-sm table-bordered", style={'fontSize': '14px'})
+                                ], style={
+                                    'backgroundColor': 'white',
+                                    'padding': '25px',
+                                    'borderRadius': '10px',
+                                    'boxShadow': '0 8px 25px rgba(0,0,0,0.3)',
+                                    'maxWidth': '600px',
+                                    'width': '100%',
+                                    'position': 'relative'
+                                })
+                            ], style={
+                                'position': 'fixed',
+                                'top': '0',
+                                'left': '0',
+                                'width': '100%',
+                                'height': '100%',
+                                'backgroundColor': 'rgba(0,0,0,0.5)',
+                                'display': 'flex',
+                                'justifyContent': 'center',
+                                'alignItems': 'center',
+                                'zIndex': '1000'
+                            }, id="tooltip-overlay")
+                        ], style={'display': 'none'})
                     ], className='col-md-4 mb-3'),
                 ], className='row')
             ], className='card-body')
@@ -144,7 +203,7 @@ app.layout = html.Div([
                     html.P('Total de Muertes', style={'color': '#ffffff', 'margin': '0', 'fontSize': '1rem', 'fontWeight': '500'})
                 ], className='text-center p-4')
             ], className='card h-100 shadow-sm border-0', style={'background': 'linear-gradient(135deg, #2c3e50 0%, #34495e 100%)'})
-        ], className='col-md-4 mb-4'),
+        ], className='col-md-3 mb-4'),
         html.Div([
             html.Div([
                 html.Div([
@@ -153,7 +212,7 @@ app.layout = html.Div([
                     html.P('Muertes Masculinas', style={'color': '#ffffff', 'margin': '0', 'fontSize': '1rem', 'fontWeight': '500'})
                 ], className='text-center p-4')
             ], className='card h-100 shadow-sm border-0', style={'background': 'linear-gradient(135deg, #3498db 0%, #2980b9 100%)'})
-        ], className='col-md-4 mb-4'),
+        ], className='col-md-3 mb-4'),
         html.Div([
             html.Div([
                 html.Div([
@@ -162,7 +221,7 @@ app.layout = html.Div([
                     html.P('Muertes Femeninas', style={'color': '#ffffff', 'margin': '0', 'fontSize': '1rem', 'fontWeight': '500'})
                 ], className='text-center p-4')
             ], className='card h-100 shadow-sm border-0', style={'background': 'linear-gradient(135deg, #e84393 0%, #c0392b 100%)'})
-        ], className='col-md-4 mb-4'),
+        ], className='col-md-3 mb-4'),
         html.Div([
             html.Div([
                 html.Div([
@@ -171,8 +230,11 @@ app.layout = html.Div([
                     html.P('Departamentos', style={'color': '#ffffff', 'margin': '0', 'fontSize': '1rem', 'fontWeight': '500'})
                 ], className='text-center p-4')
             ], className='card h-100 shadow-sm border-0', style={'background': 'linear-gradient(135deg, #00b894 0%, #27ae60 100%)'})
-        ], className='col-md-4 mb-4')
+        ], className='col-md-3 mb-4')
     ], className='row justify-content-center mb-5'),
+    html.Div([
+        html.P('*Los datos se actualizan automáticamente según los filtros aplicados', className='text-muted mt-2 small')
+    ], className='container-fluid'),
 
     # Sección 1: Distribución Geográfica
     html.Div([
@@ -186,7 +248,6 @@ app.layout = html.Div([
                         style={'height': '500px'}
                     )
                 ], className='card shadow-sm'),
-                html.P('*Los datos se actualizan automáticamente según los filtros aplicados', className='text-muted mt-2 small')
             ], className='col-12')
         ], className='row mb-5')
     ], className='container-fluid'),
@@ -342,12 +403,15 @@ app.layout = html.Div([
     [dash.Output('total-muertes', 'children'),
      dash.Output('muertes-hombres', 'children'),
      dash.Output('muertes-mujeres', 'children'),
-     dash.Output('deptos-afectados', 'children')],
+     dash.Output('deptos-afectados', 'children'),
+     dash.Output('tooltip-modal', 'style')],
     [dash.Input('departamento-filter', 'value'),
      dash.Input('sexo-filter', 'value'),
-     dash.Input('edad-filter', 'value')]
+     dash.Input('edad-filter', 'value'),
+     dash.Input('edad-tooltip', 'n_clicks'),
+     dash.Input('close-tooltip', 'n_clicks')]
 )
-def update_stats(departamento, sexo, edad):
+def update_stats(departamento, sexo, edad, tooltip_clicks, close_clicks):
     # Filtrar datos según selecciones
     filtered_df = df_mortality.copy()
 
@@ -366,7 +430,18 @@ def update_stats(departamento, sexo, edad):
     muertes_mujeres = len(filtered_df[filtered_df['SEXO'] == 2])
     deptos_afectados = filtered_df['COD_DPTO'].nunique()
 
-    return f"{total_muertes:,}", f"{muertes_hombres:,}", f"{muertes_mujeres:,}", f"{deptos_afectados}"
+    # Manejar tooltip modal
+    ctx = dash.callback_context
+    tooltip_style = {'display': 'none'}
+
+    if ctx.triggered:
+        trigger_id = ctx.triggered[0]['prop_id'].split('.')[0]
+        if trigger_id == 'edad-tooltip':
+            tooltip_style = {'display': 'block'}
+        elif trigger_id == 'close-tooltip':
+            tooltip_style = {'display': 'none'}
+
+    return f"{total_muertes:,}", f"{muertes_hombres:,}", f"{muertes_mujeres:,}", f"{deptos_afectados}", tooltip_style
 
 @app.callback(
     dash.Output('mapa-departamentos', 'figure'),
@@ -391,14 +466,18 @@ def update_map(departamento, sexo, edad):
     dept_data = dept_data.merge(df_divipola[['COD_DPTO', 'NOM_DPTO']].drop_duplicates(),
                                 on='COD_DPTO', how='left')
 
-    # Crear mapa usando scatter con coordenadas (simplificado)
+    # Crear mapa usando scatter con coordenadas
     fig = px.bar(dept_data,
-                 x='NOM_DPTO',
-                 y='muertes',
-                 title='Distribución de Muertes por Departamento',
-                 color='muertes',
-                 color_continuous_scale='Reds')
-    fig.update_layout(xaxis_title='Departamento', yaxis_title='Número de Muertes')
+                  x='NOM_DPTO',
+                  y='muertes',
+                  color='muertes',
+                  color_continuous_scale='Reds')
+    fig.update_layout(
+        title='Distribución de Muertes por Departamento',
+        xaxis_title='Departamento',
+        yaxis_title='Número de Muertes',
+        showlegend=False
+    )
     fig.update_xaxes(tickangle=45)
 
     return fig
@@ -431,9 +510,13 @@ def update_line_chart(departamento, sexo, edad):
     monthly_data['mes_nombre'] = monthly_data['MES'].apply(lambda x: meses[x-1] if 1 <= x <= 12 else 'Desconocido')
 
     fig = px.line(monthly_data, x='mes_nombre', y='muertes',
-                  title='Muertes por Mes en Colombia 2019',
                   markers=True)
-    fig.update_layout(xaxis_title='Mes', yaxis_title='Número de Muertes')
+    fig.update_layout(
+        title='Muertes por Mes en Colombia 2019',
+        xaxis_title='Mes',
+        yaxis_title='Número de Muertes',
+        showlegend=False
+    )
 
     return fig
 
@@ -468,9 +551,13 @@ def update_violent_cities(departamento, sexo, edad):
     top_violent = city_violence.nlargest(5, 'homicidios')
 
     fig = px.bar(top_violent, x='NOM_MUNIC', y='homicidios',
-                 title='5 Ciudades Más Violentas (Homicidios)',
-                 color='homicidios', color_continuous_scale='Reds')
-    fig.update_layout(xaxis_title='Ciudad', yaxis_title='Número de Homicidios')
+                  color='homicidios', color_continuous_scale='Reds')
+    fig.update_layout(
+        title='5 Ciudades Más Violentas (Homicidios)',
+        xaxis_title='Ciudad',
+        yaxis_title='Número de Homicidios',
+        showlegend=False
+    )
 
     return fig
 
@@ -500,12 +587,20 @@ def update_low_mortality_cities(departamento, sexo, edad):
     city_mortality = city_mortality.merge(df_divipola[['COD_DPTO', 'COD_MUNIC', 'NOM_MUNIC']].drop_duplicates(),
                                          on=['COD_DPTO', 'COD_MUNIC'], how='left')
 
-    # 10 ciudades con menor mortalidad (excluyendo valores muy bajos)
+    # 10 ciudades con menor mortalidad 
     low_mortality = city_mortality[city_mortality['muertes'] >= 5].nsmallest(10, 'muertes')
 
-    fig = px.pie(low_mortality, values='muertes', names='NOM_MUNIC',
-                 title='10 Ciudades con Menor Índice de Mortalidad')
-    fig.update_traces(textposition='inside', textinfo='percent+label')
+    fig = px.pie(low_mortality, values='muertes', names='NOM_MUNIC')
+    fig.update_layout(
+        title='10 Ciudades con Menor Índice de Mortalidad',
+        showlegend=True
+    )
+    fig.update_traces(
+        textposition='inside',
+        textinfo='label+value+percent',
+        textfont_size=12,
+        hovertemplate='<b>%{label}</b><br>Muertes: %{value}<br>Porcentaje: %{percent}<extra></extra>'
+    )
 
     return fig
 
@@ -531,22 +626,104 @@ def update_causes_table(departamento, sexo, edad):
     # Agrupar por causa de defunción
     causes_data = filtered_df.groupby('CAUSA_DEFUNCION').size().reset_index(name='total')
 
-    # Crear descripciones básicas para las causas más comunes
-    cause_descriptions = {
-        'I219': 'Infarto agudo del miocardio',
-        'J449': 'Enfermedad pulmonar obstructiva crónica',
-        'C349': 'Cáncer de pulmón',
-        'I64': 'Accidente cerebrovascular',
-        'I10': 'Hipertensión esencial',
-        'C509': 'Cáncer de mama',
-        'C61': 'Cáncer de próstata',
-        'E149': 'Diabetes mellitus no especificada',
-        'K729': 'Enfermedad hepática',
-        'X95': 'Homicidio'
+    # Crear diccionario de mapeo usando las columnas correctas del archivo de códigos
+    # Basándonos en el análisis, las columnas correctas son diferentes
+    if 'CODIGO_CIE10' in df_codes.columns and 'DESCRIPCION_CIE10' in df_codes.columns:
+        # Si existen las columnas esperadas, usarlas
+        code_mapping = dict(zip(
+            df_codes['CODIGO_CIE10'].astype(str).str.strip(),
+            df_codes['DESCRIPCION_CIE10'].astype(str).str.strip()
+        ))
+    else:
+        # Buscar automáticamente las columnas correctas
+        mortality_codes = set(df_mortality['CAUSA_DEFUNCION'].dropna().astype(str).str.strip().unique())
+
+        # Encontrar la columna con mejor coincidencia para códigos
+        best_code_col = None
+        max_matches = 0
+        best_desc_col = None
+
+        for code_col in df_codes.columns:
+            if df_codes[code_col].notna().sum() > 0:
+                mapping_codes = set(df_codes[code_col].dropna().astype(str).str.strip().unique())
+                matches = len(mortality_codes.intersection(mapping_codes))
+                if matches > max_matches:
+                    max_matches = matches
+                    best_code_col = code_col
+
+        # Encontrar columna de descripción correspondiente
+        for desc_col in df_codes.columns:
+            if 'DESCRIP' in desc_col.upper() or 'NOMBRE' in desc_col.upper() or 'CAUSA' in desc_col.upper():
+                best_desc_col = desc_col
+                break
+
+        # Crear un mapeo combinado de TODAS las columnas que contienen códigos
+        combined_mapping = {}
+
+        # Buscar todas las columnas que contienen códigos CIE-10
+        code_columns = []
+        for col in df_codes.columns:
+            if df_codes[col].notna().sum() > 0:
+                sample = str(df_codes[col].dropna().iloc[0])
+                # Si parece un código CIE-10 (letras + números, longitud razonable)
+                if len(sample) <= 10 and any(c.isalpha() for c in sample) and any(c.isdigit() for c in sample):
+                    code_columns.append(col)
+
+        # Encontrar columna de descripción
+        desc_col = None
+        for col in df_codes.columns:
+            if 'DESCRIP' in col.upper() or 'NOMBRE' in col.upper() or 'CAUSA' in col.upper():
+                desc_col = col
+                break
+
+        # Crear mapeo combinado filtrado (solo descripciones no vacías)
+        if code_columns and desc_col:
+            for code_col in code_columns:
+                # Filtrar filas con descripciones válidas (no vacías ni NaN)
+                valid_rows = df_codes[
+                    (df_codes[code_col].notna()) &
+                    (df_codes[desc_col].notna()) &
+                    (df_codes[desc_col].astype(str).str.strip() != '')
+                ]
+
+                if not valid_rows.empty:
+                    temp_mapping = dict(zip(
+                        valid_rows[code_col].astype(str).str.strip(),
+                        valid_rows[desc_col].astype(str).str.strip()
+                    ))
+                    combined_mapping.update(temp_mapping)
+            code_mapping = combined_mapping
+        else:
+            # Último fallback
+            code_mapping = {
+                'I219': 'Infarto agudo del miocardio',
+                'J449': 'Enfermedad pulmonar obstructiva crónica',
+                'C349': 'Cáncer de pulmón',
+                'I64': 'Accidente cerebrovascular',
+                'I10': 'Hipertensión esencial',
+                'C509': 'Cáncer de mama',
+                'C61': 'Cáncer de próstata',
+                'E149': 'Diabetes mellitus no especificada',
+                'K729': 'Enfermedad hepática',
+                'X95': 'Homicidio'
+            }
+
+    # Agregar descripciones usando el mapeo automático
+    causes_data['descripcion'] = causes_data['CAUSA_DEFUNCION'].astype(str).str.strip().map(code_mapping).fillna('Causa no especificada')
+
+    # Para los códigos que aún no tienen descripción, proporcionar descripciones manuales
+    manual_descriptions = {
+        'J440': 'Enfermedad pulmonar obstructiva crónica con exacerbación aguda',
+        'J189': 'Neumonía, no especificada',
+        'C169': 'Cáncer de estómago, parte no especificada',
+        'X954': 'Homicidio y lesiones por intervención legal, no especificadas'
     }
 
-    # Agregar descripciones
-    causes_data['descripcion'] = causes_data['CAUSA_DEFUNCION'].astype(str).map(cause_descriptions).fillna('Causa no especificada')
+    # Aplicar descripciones manuales donde falten
+    causes_data['descripcion'] = causes_data.apply(
+        lambda row: manual_descriptions.get(str(row['CAUSA_DEFUNCION']).strip(), row['descripcion']),
+        axis=1
+    )
 
     # Top 10 causas
     top_causes = causes_data.nlargest(10, 'total')[['CAUSA_DEFUNCION', 'descripcion', 'total']]
@@ -584,9 +761,12 @@ def update_stacked_sex_chart(departamento, sexo, edad):
     sex_dept_data['SEXO'] = sex_dept_data['SEXO'].map({1: 'Masculino', 2: 'Femenino', 3: 'Indeterminado'})
 
     fig = px.bar(sex_dept_data, x='NOM_DPTO', y='muertes', color='SEXO',
-                 title='Muertes por Sexo y Departamento',
-                 barmode='stack')
-    fig.update_layout(xaxis_title='Departamento', yaxis_title='Número de Muertes')
+                  barmode='stack')
+    fig.update_layout(
+        title='Muertes por Sexo y Departamento',
+        xaxis_title='Departamento',
+        yaxis_title='Número de Muertes'
+    )
 
     return fig
 
@@ -651,10 +831,16 @@ def update_age_histogram(departamento, sexo, edad):
     age_data.columns = ['grupo', 'muertes']
 
     fig = px.bar(age_data, x='grupo', y='muertes',
-                 title='Distribución de Muertes por Grupos de Edad',
-                 color='muertes', color_continuous_scale='Blues')
-    fig.update_layout(xaxis_title='Grupo de Edad', yaxis_title='Número de Muertes')
-    fig.update_xaxes(tickangle=45)
+                  title='Distribución de Muertes por Grupos de Edad',
+                  color='muertes', color_continuous_scale='Viridis')
+    fig.update_layout(
+        xaxis_title='Grupo de Edad',
+        yaxis_title='Número de Muertes',
+        plot_bgcolor='white',
+        paper_bgcolor='white'
+    )
+    fig.update_xaxes(tickangle=45, gridcolor='lightgray')
+    fig.update_yaxes(gridcolor='lightgray')
 
     return fig
 
